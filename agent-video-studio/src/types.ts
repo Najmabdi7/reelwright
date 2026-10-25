@@ -35,6 +35,8 @@ export interface SceneData {
   facts?: string[];
   counters?: CounterSpec[];
   imageSrc?: string;
+  shots?: { image?: string; src: string; caption?: string }[];
+  brands?: { logo?: string; src?: string | null; initials?: string; name: string; note?: string }[];
   url?: string;
   stars?: string;
   desc?: string;

@@ -1,0 +1,128 @@
+{
+  "slug": "demo-visuels",
+  "title": "Démo visuels",
+  "captures": [
+    {
+      "name": "repo",
+      "url": "https://github.com/morluto/rea",
+      "wait_ms": 3000
+    },
+    {
+      "name": "site",
+      "url": "https://rea.tools/",
+      "wait_ms": 2500
+    },
+    {
+      "name": "hopper",
+      "kind": "asset",
+      "url": "https://raw.githubusercontent.com/morluto/rea/main/docs/assets/rea-hopper-analysis.png"
+    },
+    {
+      "name": "Hopper",
+      "kind": "logo"
+    },
+    {
+      "name": "Ghidra",
+      "kind": "logo"
+    },
+    {
+      "name": "IDA",
+      "kind": "logo",
+      "url": "https://hex-rays.com/ida-pro"
+    },
+    {
+      "name": "JADX",
+      "kind": "logo",
+      "logo_url": "https://raw.githubusercontent.com/skylot/jadx/master/jadx-gui/src/main/resources/logos/jadx-logo.png"
+    },
+    {
+      "name": "Notion",
+      "kind": "logo",
+      "slug": "notion"
+    }
+  ],
+  "segments": [
+    {
+      "id": "a",
+      "speech": "Ton agent ouvre un logiciel qu'il n'a jamais vu.",
+      "display": "Ton agent ouvre un logiciel qu'il n'a jamais vu."
+    },
+    {
+      "id": "b",
+      "speech": "Il branche les outils d'analyse.",
+      "display": "Il branche les outils d'analyse."
+    },
+    {
+      "id": "c",
+      "speech": "Et il cite ses preuves.",
+      "display": "Et il cite ses preuves."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "shots",
+      "type": "shots",
+      "segments": [
+        0
+      ],
+      "badge": "DÉMO · CAPTURES",
+      "title": "Trois preuves réelles",
+      "shots": [
+        {
+          "image": "repo",
+          "caption": "le dépôt, en vrai"
+        },
+        {
+          "image": "site",
+          "caption": "le site officiel"
+        },
+        {
+          "image": "hopper",
+          "caption": "l'analyse dans Hopper"
+        }
+      ]
+    },
+    {
+      "id": "logos",
+      "type": "logos",
+      "segments": [
+        1
+      ],
+      "badge": "OUTILS OFFICIELS",
+      "title": "Il branche",
+      "sub": "les analyseurs du marché",
+      "brands": [
+        {
+          "logo": "Hopper",
+          "name": "Hopper",
+          "note": "désassembleur"
+        },
+        {
+          "logo": "Ghidra",
+          "name": "Ghidra",
+          "note": "NSA, open source"
+        },
+        {
+          "logo": "IDA",
+          "name": "IDA Pro",
+          "note": "Hex-Rays"
+        },
+        {
+          "logo": "JADX",
+          "name": "JADX",
+          "note": "APK Android"
+        }
+      ]
+    },
+    {
+      "id": "outro",
+      "type": "outro",
+      "segments": [
+        2
+      ],
+      "badge": "FIN",
+      "question": "Essaie sur ton app",
+      "cta": "Dis-moi ce que tu trouves"
+    }
+  ]
+}

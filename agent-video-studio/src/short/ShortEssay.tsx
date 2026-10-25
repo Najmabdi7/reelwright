@@ -668,6 +668,223 @@ const OutroScene: React.FC<SceneData> = ({ badge, question, cta }) => {
   );
 };
 
+const LogosScene: React.FC<SceneData> = ({ badge, title, sub, brands }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const list = brands ?? [];
+
+  return (
+    <Frame>
+      <Badge text={badge} color={VIOLET} />
+      <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+        <span
+          style={{
+            fontFamily: "Montserrat, sans-serif",
+            fontSize: 70,
+            fontWeight: 900,
+            letterSpacing: -2.4,
+            lineHeight: 1.05,
+            color: "#FFFFFF",
+          }}
+        >
+          {title}
+        </span>
+        {sub ? (
+          <span style={{ fontFamily: "Inter, sans-serif", fontSize: 26, color: "#94A3B8", fontWeight: 600 }}>
+            {sub}
+          </span>
+        ) : null}
+      </div>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: list.length > 4 ? "1fr 1fr 1fr" : "1fr 1fr",
+          gap: 26,
+          marginTop: 8,
+        }}
+      >
+        {list.map((b, i) => {
+          const s = spring({ frame: frame - 10 - i * 5, fps, config: { damping: 14, stiffness: 120 } });
+          return (
+            <div
+              key={b.name}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: 12,
+                transform: `scale(${s})`,
+                opacity: s,
+              }}
+            >
+              <div
+                style={{
+                  width: 132,
+                  height: 132,
+                  borderRadius: 32,
+                  backgroundColor: "#F8FAFC",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  border: "2px solid rgba(255,255,255,0.25)",
+                  boxShadow: "0 14px 30px rgba(0,0,0,0.55)",
+                }}
+              >
+                {b.src ? (
+                  <Img
+                    src={staticFile(b.src)}
+                    style={{ width: 78, height: 78, objectFit: "contain" }}
+                  />
+                ) : (
+                  <span
+                    style={{
+                      fontFamily: "Montserrat, sans-serif",
+                      fontSize: 46,
+                      fontWeight: 900,
+                      color: "#0F172A",
+                      letterSpacing: -1.5,
+                    }}
+                  >
+                    {b.initials}
+                  </span>
+                )}
+              </div>
+              <span
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: 25,
+                  fontWeight: 700,
+                  color: "#E2E8F0",
+                  textAlign: "center",
+                }}
+              >
+                {b.name}
+              </span>
+              {b.note ? (
+                <span
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: 19,
+                    color: "#7C8AA0",
+                    textAlign: "center",
+                    marginTop: -6,
+                  }}
+                >
+                  {b.note}
+                </span>
+              ) : null}
+            </div>
+          );
+        })}
+      </div>
+    </Frame>
+  );
+};
+
+const ShotsScene: React.FC<SceneData> = ({ badge, title, shots }) => {
+  const frame = useCurrentFrame();
+  const { fps, durationInFrames } = useVideoConfig();
+  const list = shots ?? [];
+  const n = Math.max(1, list.length);
+  const slice = durationInFrames / n;
+  const index = Math.min(n - 1, Math.floor(frame / slice));
+  const local = frame - index * slice;
+
+  return (
+    <Frame>
+      <Badge text={badge} color={ACCENT} />
+      {title ? (
+        <span
+          style={{
+            fontFamily: "Montserrat, sans-serif",
+            fontSize: 58,
+            fontWeight: 900,
+            letterSpacing: -2,
+            color: "#FFFFFF",
+            lineHeight: 1.05,
+          }}
+        >
+          {title}
+        </span>
+      ) : null}
+
+      <div style={{ position: "relative", width: CARD_W, height: 660 }}>
+        {list.map((sh, i) => {
+          const appear = spring({ frame: frame - i * slice, fps, config: { damping: 18, stiffness: 120 } });
+          const zoom = interpolate(local, [0, slice], [1.02, 1.1], clamp);
+          const fade =
+            i === index
+              ? interpolate(local, [0, Math.min(8, slice * 0.3)], [0.35, 1], clamp)
+              : 0;
+          return (
+            <div
+              key={`${sh.src}-${i}`}
+              style={{
+                position: "absolute",
+                inset: 0,
+                opacity: i === index ? fade : 0,
+                transform: `scale(${i === index ? 0.98 + appear * 0.02 : 1})`,
+                display: i === index ? "block" : "none",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: 20,
+                  overflow: "hidden",
+                  border: "2px solid rgba(255,255,255,0.14)",
+                  boxShadow: "0 28px 64px rgba(0,0,0,0.8)",
+                  backgroundColor: "#0B1220",
+                }}
+              >
+                <Img
+                  src={staticFile(sh.src)}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "top center",
+                    transform: `scale(${zoom})`,
+                  }}
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+        <div style={{ display: "flex", gap: 8 }}>
+          {list.map((sh, i) => (
+            <div
+              key={`dot-${i}`}
+              style={{
+                width: i === index ? 34 : 12,
+                height: 12,
+                borderRadius: 99,
+                backgroundColor: i === index ? ACCENT : "rgba(255,255,255,0.22)",
+              }}
+            />
+          ))}
+        </div>
+        <span
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontSize: 27,
+            fontWeight: 600,
+            color: "#CBD5E1",
+            maxWidth: 760,
+          }}
+        >
+          {list[index]?.caption}
+        </span>
+      </div>
+    </Frame>
+  );
+};
+
 /* ----------------------------------------------------------------------- master */
 
 const REGISTRY: Record<string, React.FC<SceneData>> = {
@@ -677,6 +894,8 @@ const REGISTRY: Record<string, React.FC<SceneData>> = {
   proof: ProofScene,
   flow: FlowScene,
   outro: OutroScene,
+  logos: LogosScene,
+  shots: ShotsScene,
 };
 
 export const ShortEssay: React.FC<{ data: VideoData }> = ({ data }) => {

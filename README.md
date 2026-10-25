@@ -157,6 +157,8 @@ Un sujet = un fichier `content/<slug>.json`.
 ```jsonc
 { "name": "repo", "url": "https://github.com/…" }              // capture d'écran Playwright
 { "name": "img",  "kind": "asset", "url": "https://…/x.png" }  // simple téléchargement
+{ "name": "Notion", "kind": "logo", "slug": "notion" }          // icône via simple-icons
+{ "name": "JADX",   "kind": "logo", "logo_url": "https://…/jadx-logo.png" }  // fichier exact
 ```
 
 - La capture se fait en viewport 1280×1500, `deviceScaleFactor 1.25`, locale `fr-FR`,
@@ -218,6 +220,17 @@ capacité de se traduire en action.
 capture réelle** dans chaque scène qui parle d'un produit. Une scène = une idée + une preuve +
 un chiffre vérifié. Mieux vaut huit plans courts et denses que cinq plans qui respirent pour rien.
 
+**Visuels : plus de preuves, moins de typographie seule.** Une scène qui parle d'un produit montre
+le produit. Concrètement :
+
+- **une capture réelle par affirmation** (`shots`) : trois phrases, trois captures, chacune avec sa
+  légende — pas une carte de texte qui résume les trois ;
+- **les icônes officielles des outils cités** (`logos`) : `slug` pour les marques couvertes par
+  simple-icons, `logo_url` pour pointer le fichier exact d'un projet, monogramme assumé sinon ;
+- **aucune icône devinée** : le scraping d'icônes dans une page ramène régulièrement autre chose
+  (le fluidicon de GitHub sur un site hébergé par GitHub Pages, une icône X/Twitter sur une page
+  marketing). On choisit le fichier, on ne le devine pas.
+
 Ce qui ne se négocie pas : aucun chiffre non vérifié à l'écran, des timings mesurés, un master
 à −14 LUFS, et le fichier relu avant publication.
 
@@ -235,6 +248,8 @@ Ce qui ne se négocie pas : aucun chiffre non vérifié à l'écran, des timings
 | `proof` | `badge`, `image`, `counters[]` | capture d'outil + deux compteurs animés |
 | `flow` | `badge`, `title`, `steps[]` | chaîne d'étapes numérotées, l'étape active s'allume l'une après l'autre |
 | `outro` | `badge`, `question`, `cta` | question + bouton d'appel à l'action qui pulse |
+| `shots` | `badge`, `title`, `shots[]` (`image`, `caption`) | capture réelle plein cadre, **une par temps fort de la voix off**, légende + puces de progression |
+| `logos` | `badge`, `title`, `sub`, `brands[]` (`logo`, `name`, `note`) | tuiles d'icônes officielles des outils cités ; monogramme si l'outil n'a pas d'icône propre |
 
 Un compteur s'anime de 0 à sa valeur sur 46 frames, avec un easing cubique. Il affiche
 `3205` en `3 205` (format `fr-FR`).

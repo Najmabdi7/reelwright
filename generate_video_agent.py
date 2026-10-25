@@ -30,6 +30,7 @@ import os
 import re
 import subprocess
 import sys
+import urllib.parse
 import urllib.request
 import wave
 from pathlib import Path
@@ -39,6 +40,7 @@ STUDIO_DIR = BASE_DIR / "agent-video-studio"
 PUBLIC = STUDIO_DIR / "public"
 ASSETS = PUBLIC / "assets"
 SFX = PUBLIC / "sfx"
+BRANDS = PUBLIC / "brands"
 TMP = STUDIO_DIR / ".work"
 
 VOICE_ID = "BUJMBsQ3Oq4cEeWSb48y"  # Sébastien (FR)
@@ -97,6 +99,79 @@ def slugify(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:48]
 
 
+# ------------------------------------------------------------------ 0. logos
+def image_size(data: bytes) -> tuple[int, int]:
+    """Dimensions PNG / JPEG / SVG sans dépendance : sert à écarter bannières et favicons."""
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        return int.from_bytes(data[16:20], "big"), int.from_bytes(data[20:24], "big")
+    if data[:2] == b"\xff\xd8":
+        i = 2
+        while i < len(data) - 9:
+            if data[i] != 0xFF:
+                i += 1
+                continue
+            if data[i + 1] in (0xC0, 0xC1, 0xC2):
+                return (int.from_bytes(data[i + 7:i + 9], "big"),
+                        int.from_bytes(data[i + 5:i + 7], "big"))
+            i += 2 + int.from_bytes(data[i + 2:i + 4], "big")
+    if b"<svg" in data[:400]:
+        view = re.search(rb'viewBox=["\'][\d.\s]+["\']', data[:1200])
+        if view:
+            nums = re.findall(rb"[\d.]+", view.group(0))[2:]
+            if len(nums) >= 2:
+                return int(float(nums[0])), int(float(nums[1]))
+        return 0, 0
+    return 0, 0
+
+
+def fetch_logo(entry: dict, dest_dir: Path) -> Path | None:
+    """Icône officielle d'un outil : `slug` (simple-icons) ou `logo_url` explicite.
+
+    Pas de scraping d'icônes dans la page : essayé, et ça ramène systématiquement
+    autre chose (le fluidicon de GitHub sur un site hébergé par GitHub Pages, une
+    icône X/Twitter sur une page marketing). On ne devine pas un logo : soit
+    simple-icons le fournit en vecteur, soit `logo_url` pointe le fichier exact,
+    soit la scène affiche un monogramme — choix graphique propre.
+    """
+    name = entry["name"]
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    cached = sorted(dest_dir.glob(f"{slugify(name)}.*"))
+    if cached and cached[0].stat().st_size > 200:
+        return cached[0]
+
+    candidates: list[str] = []
+    if entry.get("slug"):
+        candidates.append(f"https://cdn.jsdelivr.net/npm/simple-icons@14/icons/{entry['slug']}.svg")
+    if entry.get("logo_url"):
+        candidates.append(entry["logo_url"])
+
+    for url in candidates:
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=45) as r:
+                data = r.read()
+        except Exception:  # noqa: BLE001
+            continue
+        if len(data) < 200:
+            continue
+        is_vector = b"<svg" in data[:400]
+        w, h = image_size(data)
+        if w and h and (w / max(h, 1) > 1.9 or h / max(w, 1) > 1.9):
+            log("1/7", f"  logo {name:<8s} écarté (format {w}x{h}, pas carré) : {url[:60]}")
+            continue
+        ext = ".svg" if is_vector else (".png" if data[:8] == b"\x89PNG\r\n\x1a\n"
+                                        else ".jpg" if data[:2] == b"\xff\xd8" else "")
+        if not ext:
+            continue
+        dest = dest_dir / f"{slugify(name)}{ext}"
+        dest.write_bytes(data)
+        log("1/7", f"  logo {name:<8s} <- {'vecteur' if is_vector else f'{w}x{h}'}")
+        return dest
+
+    log("1/7", f"  logo {name:<8s} -> aucun fichier exploitable, monogramme")
+    return None
+
+
 # ------------------------------------------------------------------ 1. captures
 def capture_assets(content: dict) -> dict[str, Path]:
     log("1/7", "captures web")
@@ -104,7 +179,14 @@ def capture_assets(content: dict) -> dict[str, Path]:
     out: dict[str, Path] = {}
     caps = content.get("captures", [])
     assets = [c for c in caps if c.get("kind") == "asset"]
-    shots = [c for c in caps if c.get("kind") != "asset"]
+    shots = [c for c in caps if c.get("kind") not in ("asset", "logo")]
+    logos = [c for c in caps if c.get("kind") == "logo"]
+    brands: dict[str, Path] = {}
+
+    if logos:
+        BRANDS.mkdir(parents=True, exist_ok=True)
+        for lg in logos:
+            brands[lg["name"]] = fetch_logo(lg, BRANDS)
 
     for a in assets:
         dest = ASSETS / f"{slug}-{a['name']}.png"
@@ -156,7 +238,7 @@ def capture_assets(content: dict) -> dict[str, Path]:
     for name, path in out.items():
         if not path.exists() or path.stat().st_size < 5000:
             raise RuntimeError(f"visuel manquant ou vide : {name} ({path})")
-    return out
+    return out, brands
 
 
 # ---------------------------------------------------------------------- 2. voix
@@ -202,7 +284,7 @@ def tts_edge(text: str, dest_wav: Path) -> tuple[list[dict], float]:
     words: list[dict] = []
 
     async def run() -> None:
-        comm = edge_tts.Communicate(text, EDGE_VOICE, rate="+5%")
+        comm = edge_tts.Communicate(text, EDGE_VOICE, rate="+5%", boundary="WordBoundary")
         with open(mp3, "wb") as fh:
             async for chunk in comm.stream():
                 if chunk["type"] == "audio":
@@ -273,7 +355,12 @@ def build_narration(content: dict, engine: str, api_key: str | None):
         else:
             words, dur = tts_edge(seg["speech"], wav)
 
-        if seg.get("speech") != seg.get("display") and words:
+        if not words:
+            # moteur sans frontières de mots : répartition interne au segment
+            # (l'erreur reste bornée à un segment, contrairement à un prorata global)
+            words = proportional_fallback(seg["display"], 0.0, dur)
+            log("2/7", f"  {seg['id']:<9s} sans frontières de mots -> prorata interne")
+        elif seg.get("speech") != seg.get("display"):
             words = proportional_fallback(seg["display"], words[0]["start"], words[-1]["end"])
 
         offset = cursor - (words[0]["start"] if words else 0.0)
@@ -449,9 +536,9 @@ def build_mix(voice_raw: Path, duration: float, scene_starts: list[float],
 
 
 # ------------------------------------------------------------------- 4. données
-def build_video_data(content: dict, images: dict[str, Path], timeline: list[dict],
-                     words: list[dict], lines: list[dict], fmt: dict,
-                     duration: float, audio_rel: str) -> dict:
+def build_video_data(content: dict, images: dict[str, Path], brands: dict[str, Path],
+                     timeline: list[dict], words: list[dict], lines: list[dict],
+                     fmt: dict, duration: float, audio_rel: str) -> dict:
     fps = fmt["fps"]
     scene_starts = [max(0.0, timeline[sc["segments"][0]]["start"] - 0.12)
                     for sc in content["scenes"]]
@@ -460,9 +547,27 @@ def build_video_data(content: dict, images: dict[str, Path], timeline: list[dict
     for i, sc in enumerate(content["scenes"]):
         start = scene_starts[i]
         end = scene_starts[i + 1] if i + 1 < len(scene_starts) else duration + TAIL
-        payload = {k: v for k, v in sc.items() if k not in ("segments", "image")}
+        payload = {k: v for k, v in sc.items()
+                   if k not in ("segments", "image", "shots", "brands")}
         if "image" in sc:
             payload["imageSrc"] = f"assets/{images[sc['image']].name}"
+        # capture par temps fort : une image réelle par idée de la voix off
+        if "shots" in sc:
+            payload["shots"] = [
+                {**sh, "src": f"assets/{images[sh['image']].name}"}
+                for sh in sc["shots"]
+            ]
+        # icônes officielles des outils cités
+        if "brands" in sc:
+            resolved = []
+            for b in sc["brands"]:
+                path = brands.get(b["logo"])
+                entry_out = {**b, "src": f"brands/{path.name}" if path else None}
+                if not path:
+                    first = b["name"].split()[0]
+                    entry_out["initials"] = (first if len(first) <= 3 else first[0]).upper()
+                resolved.append(entry_out)
+            payload["brands"] = resolved
         payload["startFrame"] = int(round(start * fps))
         payload["durationInFrames"] = max(2, int(round((end - start) * fps)))
         scenes.append(payload)
@@ -607,7 +712,7 @@ def main() -> None:
     print("=" * 72)
 
     TMP.mkdir(parents=True, exist_ok=True)
-    images = capture_assets(content)
+    images, brands = capture_assets(content)
 
     api_key = read_env_key("ELEVENLABS_API_KEY")
     engine = args.tts
@@ -624,8 +729,8 @@ def main() -> None:
                     for sc in content["scenes"]]
     build_mix(voice_raw, duration, scene_starts, SFX / "ambient_bgm.wav", audio_final)
 
-    data = build_video_data(content, images, timeline, words, lines, fmt, duration,
-                            f"assets/{audio_final.name}")
+    data = build_video_data(content, images, brands, timeline, words, lines, fmt,
+                            duration, f"assets/{audio_final.name}")
     (STUDIO_DIR / "src" / "video_data.json").write_text(
         json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
