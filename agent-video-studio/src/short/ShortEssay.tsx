@@ -614,10 +614,11 @@ const OutroScene: React.FC<SceneData> = ({ badge, question, cta }) => {
             key={l}
             style={{
               fontFamily: "Montserrat, sans-serif",
-              fontSize: 84,
+              // calé pour que « Comprendre ou copier, » tienne dans 1080 - 2×72 px
+              fontSize: lines.length > 2 ? 84 : 70,
               fontWeight: 900,
               lineHeight: 1.06,
-              letterSpacing: -2.8,
+              letterSpacing: -2.4,
               color: i === 0 ? "#FFFFFF" : ACCENT,
               transform: `translateY(${(1 - s) * 40}px)`,
               opacity: interpolate(frame - i * 8, [0, 14], [0, 1], clamp),
