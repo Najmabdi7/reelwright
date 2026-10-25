@@ -33,6 +33,7 @@ Sortie : `output/rea-short.mp4` + un rapport de vérification en fin de log.
 - [Ce que fait la pipeline](#ce-que-fait-la-pipeline)
 - [Installation](#installation)
 - [Écrire un contenu](#écrire-un-contenu)
+- [Direction éditoriale](#direction-éditoriale)
 - [Scènes disponibles](#scènes-disponibles)
 - [Audio : mixage et master](#audio--mixage-et-master)
 - [Sous-titres : des timings mesurés](#sous-titres--des-timings-mesurés)
@@ -195,6 +196,30 @@ que d'utiliser ce mode.
 La durée d'une scène n'est jamais écrite à la main : elle va du premier mot de son
 premier segment au premier mot du segment de la scène suivante. Ajouter une phrase
 dans un segment allonge la scène automatiquement.
+
+---
+
+## Direction éditoriale
+
+La pipeline est neutre : elle rend ce qu'on lui donne. Ce qui fait la vidéo, c'est le JSON.
+
+**Le script vend l'essai, il ne raconte pas une histoire.** Le spectateur doit terminer en
+sachant quoi faire lui-même, avec quel outil, en combien de temps. Une phrase se juge à sa
+capacité de se traduire en action.
+
+| À faire | À éviter |
+|---|---|
+| hook = une capacité concrète (« ton agent ouvre un logiciel qu'il n'a jamais vu ») | une promesse vague, un chiffre de popularité en ouverture |
+| le geste exact : commande, bouton, URL | « un développeur a décidé de… » |
+| une preuve par affirmation : capture, chiffre daté, avant/après | l'histoire du projet, sa date de création, son nombre d'étoiles |
+| finir sur ce qu'il faut faire maintenant | finir sur une question rhétorique seule |
+
+**Densité :** 60-75 s = **8 à 10 scènes**, **2-3 informations par scène**, et **au moins une
+capture réelle** dans chaque scène qui parle d'un produit. Une scène = une idée + une preuve +
+un chiffre vérifié. Mieux vaut huit plans courts et denses que cinq plans qui respirent pour rien.
+
+Ce qui ne se négocie pas : aucun chiffre non vérifié à l'écran, des timings mesurés, un master
+à −14 LUFS, et le fichier relu avant publication.
 
 ---
 
