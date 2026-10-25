@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+video-agent-env/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Remotion & Media
+agent-video-studio/output/*.mp4
+agent-video-studio/output/*.webm
+agent-video-studio/out.mp4
+agent-video-studio/.remotion/
+output/*.mp4
+
+# OS
+.DS_Store
+Thumbs.db
+.env
+.env.local
