@@ -1,4 +1,6 @@
-# 🎬 Agent Video Studio
+# 🎬 Reelwright
+
+**Agent Video Studio** — un fichier JSON entre, une vidéo sort.
 
 **Une vidéo tech complète à partir d'un fichier JSON** — captures web réelles, voix
 française avec timings mot-à-mot mesurés, motion design programmatique (Remotion),
@@ -15,8 +17,8 @@ Exemple produit avec cette pipeline : **REA, 63 s** — [youtube.com/shorts/hHA4
 (données du fichier : 1080×1920 @60, −14,0 LUFS, −1,5 dBTP, dérive de sous-titres médiane 0,085 s).
 
 ```bash
-git clone https://github.com/Najmabdi7/agent-video-pipeline.git
-cd agent-video-pipeline
+git clone https://github.com/Najmabdi7/reelwright.git
+cd reelwright
 ./setup.sh
 source .venv/bin/activate
 python3 generate_video_agent.py --content content/rea_short.json --format short
@@ -441,7 +443,7 @@ sortie par rapport à ce dossier.
 ## Structure du dépôt
 
 ```
-agent-video-pipeline/
+reelwright/
 ├── generate_video_agent.py        # orchestrateur : 7 étapes, 659 lignes
 ├── setup.sh                       # installation en une commande
 ├── requirements.txt               # playwright, edge-tts, faster-whisper, numpy
