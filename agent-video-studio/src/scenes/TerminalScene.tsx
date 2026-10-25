@@ -1,7 +1,7 @@
 import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { MacWindow } from "../components/MacWindow";
-import { Terminal, CheckCircle2, Cpu, Activity, Zap } from "lucide-react";
+import { Terminal, CheckCircle2, Cpu } from "lucide-react";
 
 interface TerminalSceneProps {
   command: string;
@@ -22,22 +22,25 @@ export const TerminalScene: React.FC<TerminalSceneProps> = ({
   });
 
   // Typewriter effect for command: starts at frame 10, completes by frame 55
+  const safeCommand = command ?? "";
   const typedLength = Math.floor(
-    interpolate(frame, [10, 55], [0, command.length], {
+    interpolate(frame, [10, 55], [0, safeCommand.length], {
       extrapolateLeft: "clamp",
       extrapolateRight: "clamp",
     })
   );
-  const displayedCommand = command.slice(0, typedLength);
+  const displayedCommand = safeCommand.slice(0, typedLength);
 
-  // Streaming logs timeline
+  // Journal du terminal : uniquement des étapes documentées par la source officielle
+  // (README morluto/rea : setup, analyse JS/Electron, preuves et limites jointes).
+  // Aucun chiffre inventé à l'écran.
   const logs = [
-    { text: "[1/5] Injecting Frida dynamic hooks into process 48102 (UI runtime)...", startFrame: 65 },
-    { text: "[2/5] Intercepting IPC calls and state transitions (124 events captured)...", startFrame: 110 },
-    { text: "[3/5] Hopper engine: recovering C++ virtual method tables & Mach-O symbols...", startFrame: 160 },
-    { text: "[4/5] Obligation Ledger: matching AST export shapes (coverage: 100%)...", startFrame: 220 },
-    { text: "[5/5] Agent Code Synthesizer: generating clean TypeScript + React components...", startFrame: 275 },
-    { text: "✓ SUCCESS: 100% behavioral parity verified with zero original source code", startFrame: 330, success: true },
+    { text: "$ npx rea-agents setup", startFrame: 65 },
+    { text: "→ MCP server registered · workflow instructions installed", startFrame: 110 },
+    { text: "$ rea analyze-javascript-application ./App.app --json", startFrame: 160 },
+    { text: "→ modules, imports, Electron boundaries, IPC channels", startFrame: 220 },
+    { text: "→ evidence and limitations attached to each conclusion", startFrame: 275 },
+    { text: "✓ Analyse locale terminée", startFrame: 330, success: true },
   ];
 
   return (

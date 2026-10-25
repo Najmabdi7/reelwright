@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("./fonts/JetBrainsMono.ttf") format("truetype");
+  font-weight: 100 800;
+  font-display: block;
+}

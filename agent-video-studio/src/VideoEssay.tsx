@@ -1,7 +1,7 @@
 import React from "react";
 import { Audio, Sequence, staticFile } from "remotion";
 import { Background } from "./components/Background";
-import { Subtitles } from "./components/Subtitles";
+import { SubtitleTrack } from "./components/SubtitleTrack";
 import { HookScene } from "./scenes/HookScene";
 import { BrowserScene } from "./scenes/BrowserScene";
 import { NativeHopperScene } from "./scenes/NativeHopperScene";
@@ -11,12 +11,28 @@ import { CaseStudyScene } from "./scenes/CaseStudyScene";
 import { EthicsScene } from "./scenes/EthicsScene";
 import { OutroScene } from "./scenes/OutroScene";
 import rawData from "./video_data.json";
-import { VideoData } from "./types";
+import { SceneData, VideoData } from "./types";
 
-const data = rawData as VideoData;
+const data = rawData as unknown as VideoData;
+
+/** Scènes 16:9 disponibles pour le format long. */
+const REGISTRY: Record<string, React.ComponentType<Record<string, unknown>>> = {
+  hook: HookScene as unknown as React.ComponentType<Record<string, unknown>>,
+  browser: BrowserScene as unknown as React.ComponentType<Record<string, unknown>>,
+  native_hopper: NativeHopperScene as unknown as React.ComponentType<Record<string, unknown>>,
+  multiplatform: MultiplatformScene as unknown as React.ComponentType<Record<string, unknown>>,
+  terminal: TerminalScene as unknown as React.ComponentType<Record<string, unknown>>,
+  casestudy: CaseStudyScene as unknown as React.ComponentType<Record<string, unknown>>,
+  ethics: EthicsScene as unknown as React.ComponentType<Record<string, unknown>>,
+  outro: OutroScene as unknown as React.ComponentType<Record<string, unknown>>,
+};
 
 export const VideoEssay: React.FC = () => {
-  const transitions = [162, 551, 877, 1241, 1631, 1912, 2195];
+  if (data.fps !== 30) {
+    throw new Error(
+      `VideoEssay attend un video_data.json à 30 fps (reçu ${data.fps}). Relancer avec --format long.`,
+    );
+  }
 
   return (
     <div
@@ -28,105 +44,24 @@ export const VideoEssay: React.FC = () => {
         overflow: "hidden",
       }}
     >
-      {/* 1. Atmospheric Moving Cyber Background */}
       <Background />
 
-      {/* 2. Audio Layer */}
-      {/* Full French Voiceover with correct GitHub pronunciation */}
-      <Audio src={staticFile(data.audioSrc)} volume={1.0} />
+      {/* voix + musique duckée + SFX : un seul fichier mixé en amont par ffmpeg */}
+      <Audio src={staticFile(data.audioSrc)} volume={1} />
 
-      {/* Subtle Background Music with ducking */}
-      <Audio src={staticFile(data.bgmSrc)} volume={0.16} loop />
+      {data.scenes.map((scene: SceneData) => {
+        const Component = REGISTRY[scene.type];
+        if (!Component) {
+          throw new Error(`type de scène inconnu pour le format long : ${scene.type}`);
+        }
+        return (
+          <Sequence key={scene.id} from={scene.startFrame} durationInFrames={scene.durationInFrames}>
+            <Component {...scene} />
+          </Sequence>
+        );
+      })}
 
-      {/* Transition sound effects */}
-      {transitions.map((frameNum) => (
-        <Sequence key={frameNum} from={frameNum - 3} durationInFrames={30}>
-          <Audio src={staticFile("sfx/whoosh.wav")} volume={0.45} />
-        </Sequence>
-      ))}
-
-      {/* Element entrance pop sounds */}
-      {[10, 180, 570, 895, 1260, 1650, 1930, 2215].map((frameNum) => (
-        <Sequence key={`pop-${frameNum}`} from={frameNum} durationInFrames={15}>
-          <Audio src={staticFile("sfx/pop.wav")} volume={0.35} />
-        </Sequence>
-      ))}
-
-      {/* 3. Visual Scenes Sequence */}
-
-      {/* Scene 1: Hook */}
-      <Sequence from={data.scenes[0].startFrame} durationInFrames={data.scenes[0].durationInFrames}>
-        <HookScene
-          title={data.scenes[0].title}
-          subtitle={data.scenes[0].subtitle}
-          badge={data.scenes[0].badge}
-        />
-      </Sequence>
-
-      {/* Scene 2: GitHub Viral Phenomenon */}
-      <Sequence from={data.scenes[1].startFrame} durationInFrames={data.scenes[1].durationInFrames}>
-        <BrowserScene
-          url={data.scenes[1].url}
-          imageSrc={data.scenes[1].imageSrc}
-          title={data.scenes[1].title}
-          stars={data.scenes[1].stars}
-          badge={data.scenes[1].badge}
-        />
-      </Sequence>
-
-      {/* Scene 3: Native Hopper & Ghidra Inspection */}
-      <Sequence from={data.scenes[2].startFrame} durationInFrames={data.scenes[2].durationInFrames}>
-        <NativeHopperScene
-          imageSrc={data.scenes[2].imageSrc}
-          title={data.scenes[2].title}
-          badge={data.scenes[2].badge}
-        />
-      </Sequence>
-
-      {/* Scene 4: Multiplatform Deconstruction */}
-      <Sequence from={data.scenes[3].startFrame} durationInFrames={data.scenes[3].durationInFrames}>
-        <MultiplatformScene
-          badge={data.scenes[3].badge}
-          cards={data.scenes[3].cards}
-        />
-      </Sequence>
-
-      {/* Scene 5: Autonomous Agent & Reconstruction Ledger */}
-      <Sequence from={data.scenes[4].startFrame} durationInFrames={data.scenes[4].durationInFrames}>
-        <TerminalScene
-          command={data.scenes[4].command}
-          badge={data.scenes[4].badge}
-        />
-      </Sequence>
-
-      {/* Scene 6: Real Case Study (Adobe vs Open Source) */}
-      <Sequence from={data.scenes[5].startFrame} durationInFrames={data.scenes[5].durationInFrames}>
-        <CaseStudyScene
-          badge={data.scenes[5].badge}
-          title={data.scenes[5].title}
-          desc={data.scenes[5].desc}
-        />
-      </Sequence>
-
-      {/* Scene 7: Ethics, Legal & Future */}
-      <Sequence from={data.scenes[6].startFrame} durationInFrames={data.scenes[6].durationInFrames}>
-        <EthicsScene
-          badge={data.scenes[6].badge}
-          points={data.scenes[6].points}
-        />
-      </Sequence>
-
-      {/* Scene 8: Outro & Debate */}
-      <Sequence from={data.scenes[7].startFrame} durationInFrames={data.scenes[7].durationInFrames}>
-        <OutroScene
-          badge={data.scenes[7].badge}
-          question={data.scenes[7].question}
-          cta={data.scenes[7].cta}
-        />
-      </Sequence>
-
-      {/* 4. Global Dynamic Karaoke Subtitles */}
-      <Subtitles words={data.words} />
+      <SubtitleTrack lines={data.lines} fontSize={32} bottom={80} maxWidth={1400} />
     </div>
   );
 };

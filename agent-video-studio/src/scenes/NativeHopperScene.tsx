@@ -1,7 +1,7 @@
 import React from "react";
 import { Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { MacWindow } from "../components/MacWindow";
-import { Cpu, Binary, ShieldCheck, Activity, Terminal } from "lucide-react";
+import { Cpu, Binary } from "lucide-react";
 
 interface NativeHopperSceneProps {
   imageSrc: string;
@@ -11,7 +11,6 @@ interface NativeHopperSceneProps {
 
 export const NativeHopperScene: React.FC<NativeHopperSceneProps> = ({
   imageSrc,
-  title,
   badge,
 }) => {
   const frame = useCurrentFrame();

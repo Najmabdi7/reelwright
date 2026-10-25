@@ -1,1449 +1,1949 @@
 {
-  "title": "REA : L’IA qui Clone N’importe quel Logiciel",
-  "fps": 30,
-  "totalFrames": 2539,
-  "audioSrc": "assets/voice.mp3",
-  "bgmSrc": "sfx/ambient_bgm.wav",
-  "sentences": [
-    {
-      "start": 0.05,
-      "end": 5.407,
-      "duration": 5.357,
-      "text": "Imaginez pouvoir cloner n’importe quel logiciel existant, sans jamais avoir accès à son code source."
-    },
-    {
-      "start": 5.407,
-      "end": 9.643,
-      "duration": 4.236,
-      "text": "Ce projet open source s’appelle REA, pour Reverse Engineer Anything."
-    },
-    {
-      "start": 9.643,
-      "end": 18.371,
-      "duration": 8.728,
-      "text": "En quelques semaines à peine, il a dépassé les 380 000 étoiles sur Guite Heube, propulsé par des démos stupéfiantes où des développeurs ont recréé des pans entiers de la suite Adobe."
-    },
-    {
-      "start": 18.371,
-      "end": 21.357,
-      "duration": 2.986,
-      "text": "Mais comment l’IA peut-elle comprendre un logiciel compilé ?"
-    },
-    {
-      "start": 21.357,
-      "end": 29.238,
-      "duration": 7.881,
-      "text": "Son secret repose sur une passerelle MCP directe avec les moteurs d’analyse de pointe : Ghidra, Hopper Disassembler, IDA Pro et Rizin."
-    },
-    {
-      "start": 29.238,
-      "end": 32.869,
-      "duration": 3.631,
-      "text": "REA ne s’arrête pas aux exécutables C++ ou Rust."
-    },
-    {
-      "start": 32.869,
-      "end": 41.383,
-      "duration": 8.514,
-      "text": "Il décompose les archives ASAR des applications Electron, dépaquette les bundles Vite et Webpack, et inspecte les applications Android avec JADX et APKTool."
-    },
-    {
-      "start": 41.383,
-      "end": 43.81,
-      "duration": 2.427,
-      "text": "La vraie rupture, c’est l’autonomie."
-    },
-    {
-      "start": 43.81,
-      "end": 54.395,
-      "duration": 10.585,
-      "text": "L’agent IA ne devine pas : il construit un ledger d’obligations, vérifie chaque signature d’API, et instrumente l’application en direct avec Frida pour valider la parité comportementale avant de régénérer le code."
-    },
-    {
-      "start": 54.395,
-      "end": 55.833,
-      "duration": 1.439,
-      "text": "Le cas le plus marquant ?"
-    },
-    {
-      "start": 55.833,
-      "end": 63.764,
-      "duration": 7.931,
-      "text": "Un développeur agacé par le modèle d’abonnement d’Adobe qui a utilisé REA pour réimplémenter les outils essentiels en version totalement gratuite et open source."
-    },
-    {
-      "start": 63.764,
-      "end": 68.845,
-      "duration": 5.081,
-      "text": "Mais cette technologie pose une question cruciale : qui va maintenir ces alternatives dans la durée ?"
-    },
-    {
-      "start": 68.845,
-      "end": 73.18,
-      "duration": 4.335,
-      "text": "Et quelle sera la réaction des grands éditeurs face à la rétro-ingénierie légale ?"
-    },
-    {
-      "start": 73.18,
-      "end": 78.595,
-      "duration": 5.415,
-      "text": "Le reverse engineering n’est plus réservé aux experts en sécurité : il est désormais entre les mains de l’IA."
-    },
-    {
-      "start": 78.595,
-      "end": 80.464,
-      "duration": 1.869,
-      "text": "Révolution ou menace ?"
-    },
-    {
-      "start": 80.464,
-      "end": 83.131,
-      "duration": 2.667,
-      "text": "Donnez votre avis en commentaire et abonnez-vous !"
-    }
-  ],
-  "words": [
-    {
-      "word": "Imaginez",
-      "start": 0.05,
-      "end": 0.558
-    },
-    {
-      "word": "pouvoir",
-      "start": 0.558,
-      "end": 1.002
-    },
-    {
-      "word": "cloner",
-      "start": 1.002,
-      "end": 1.383
-    },
-    {
-      "word": "n’importe",
-      "start": 1.383,
-      "end": 1.954
-    },
-    {
-      "word": "quel",
-      "start": 1.954,
-      "end": 2.208
-    },
-    {
-      "word": "logiciel",
-      "start": 2.208,
-      "end": 2.715
-    },
-    {
-      "word": "existant,",
-      "start": 2.715,
-      "end": 3.401
-    },
-    {
-      "word": "sans",
-      "start": 3.401,
-      "end": 3.654
-    },
-    {
-      "word": "jamais",
-      "start": 3.654,
-      "end": 4.035
-    },
-    {
-      "word": "avoir",
-      "start": 4.035,
-      "end": 4.353
-    },
-    {
-      "word": "accès",
-      "start": 4.353,
-      "end": 4.67
-    },
-    {
-      "word": "à",
-      "start": 4.67,
-      "end": 4.733
-    },
-    {
-      "word": "son",
-      "start": 4.733,
-      "end": 4.924
-    },
-    {
-      "word": "code",
-      "start": 4.924,
-      "end": 5.177
-    },
-    {
-      "word": "source.",
-      "start": 5.177,
-      "end": 5.711
-    },
-    {
-      "word": "Ce",
-      "start": 5.711,
-      "end": 5.837
-    },
-    {
-      "word": "projet",
-      "start": 5.837,
-      "end": 6.218
-    },
-    {
-      "word": "open",
-      "start": 6.218,
-      "end": 6.472
-    },
-    {
-      "word": "source",
-      "start": 6.472,
-      "end": 6.853
-    },
-    {
-      "word": "s’appelle",
-      "start": 6.853,
-      "end": 7.424
-    },
-    {
-      "word": "REA,",
-      "start": 7.424,
-      "end": 7.729
-    },
-    {
-      "word": "pour",
-      "start": 7.729,
-      "end": 7.982
-    },
-    {
-      "word": "Reverse",
-      "start": 7.982,
-      "end": 8.427
-    },
-    {
-      "word": "Engineer",
-      "start": 8.427,
-      "end": 8.934
-    },
-    {
-      "word": "Anything.",
-      "start": 8.934,
-      "end": 9.62
-    },
-    {
-      "word": "En",
-      "start": 9.62,
-      "end": 9.747
-    },
-    {
-      "word": "quelques",
-      "start": 9.747,
-      "end": 10.254
-    },
-    {
-      "word": "semaines",
-      "start": 10.254,
-      "end": 10.762
-    },
-    {
-      "word": "à",
-      "start": 10.762,
-      "end": 10.825
-    },
-    {
-      "word": "peine,",
-      "start": 10.825,
-      "end": 11.282
-    },
-    {
-      "word": "il",
-      "start": 11.282,
-      "end": 11.409
-    },
-    {
-      "word": "a",
-      "start": 11.409,
-      "end": 11.473
-    },
-    {
-      "word": "dépassé",
-      "start": 11.473,
-      "end": 11.917
-    },
-    {
-      "word": "les",
-      "start": 11.917,
-      "end": 12.107
-    },
-    {
-      "word": "380",
-      "start": 12.107,
-      "end": 12.298
-    },
-    {
-      "word": "000",
-      "start": 12.298,
-      "end": 12.488
-    },
-    {
-      "word": "étoiles",
-      "start": 12.488,
-      "end": 12.932
-    },
-    {
-      "word": "sur",
-      "start": 12.932,
-      "end": 13.123
-    },
-    {
-      "word": "GitHub,",
-      "start": 13.123,
-      "end": 13.656
-    },
-    {
-      "word": "propulsé",
-      "start": 13.656,
-      "end": 14.163
-    },
-    {
-      "word": "par",
-      "start": 14.163,
-      "end": 14.354
-    },
-    {
-      "word": "des",
-      "start": 14.354,
-      "end": 14.544
-    },
-    {
-      "word": "démos",
-      "start": 14.544,
-      "end": 14.861
-    },
-    {
-      "word": "stupéfiantes",
-      "start": 14.861,
-      "end": 15.623
-    },
-    {
-      "word": "où",
-      "start": 15.623,
-      "end": 15.75
-    },
-    {
-      "word": "des",
-      "start": 15.75,
-      "end": 15.94
-    },
-    {
-      "word": "développeurs",
-      "start": 15.94,
-      "end": 16.702
-    },
-    {
-      "word": "ont",
-      "start": 16.702,
-      "end": 16.892
-    },
-    {
-      "word": "recréé",
-      "start": 16.892,
-      "end": 17.273
-    },
-    {
-      "word": "des",
-      "start": 17.273,
-      "end": 17.463
-    },
-    {
-      "word": "pans",
-      "start": 17.463,
-      "end": 17.717
-    },
-    {
-      "word": "entiers",
-      "start": 17.717,
-      "end": 18.161
-    },
-    {
-      "word": "de",
-      "start": 18.161,
-      "end": 18.288
-    },
-    {
-      "word": "la",
-      "start": 18.288,
-      "end": 18.415
-    },
-    {
-      "word": "suite",
-      "start": 18.415,
-      "end": 18.732
-    },
-    {
-      "word": "Adobe.",
-      "start": 18.732,
-      "end": 19.189
-    },
-    {
-      "word": "Mais",
-      "start": 19.189,
-      "end": 19.443
-    },
-    {
-      "word": "comment",
-      "start": 19.443,
-      "end": 19.887
-    },
-    {
-      "word": "l’IA",
-      "start": 19.887,
-      "end": 20.141
-    },
-    {
-      "word": "peut-elle",
-      "start": 20.141,
-      "end": 20.712
-    },
-    {
-      "word": "comprendre",
-      "start": 20.712,
-      "end": 21.347
-    },
-    {
-      "word": "un",
-      "start": 21.347,
-      "end": 21.474
-    },
-    {
-      "word": "logiciel",
-      "start": 21.474,
-      "end": 21.981
-    },
-    {
-      "word": "compilé",
-      "start": 21.981,
-      "end": 22.426
-    },
-    {
-      "word": "?",
-      "start": 22.426,
-      "end": 22.502
-    },
-    {
-      "word": "Son",
-      "start": 22.502,
-      "end": 22.692
-    },
-    {
-      "word": "secret",
-      "start": 22.692,
-      "end": 23.073
-    },
-    {
-      "word": "repose",
-      "start": 23.073,
-      "end": 23.454
-    },
-    {
-      "word": "sur",
-      "start": 23.454,
-      "end": 23.644
-    },
-    {
-      "word": "une",
-      "start": 23.644,
-      "end": 23.834
-    },
-    {
-      "word": "passerelle",
-      "start": 23.834,
-      "end": 24.469
-    },
-    {
-      "word": "MCP",
-      "start": 24.469,
-      "end": 24.659
-    },
-    {
-      "word": "directe",
-      "start": 24.659,
-      "end": 25.104
-    },
-    {
-      "word": "avec",
-      "start": 25.104,
-      "end": 25.357
-    },
-    {
-      "word": "les",
-      "start": 25.357,
-      "end": 25.548
-    },
-    {
-      "word": "moteurs",
-      "start": 25.548,
-      "end": 25.992
-    },
-    {
-      "word": "d’analyse",
-      "start": 25.992,
-      "end": 26.563
-    },
-    {
-      "word": "de",
-      "start": 26.563,
-      "end": 26.69
-    },
-    {
-      "word": "pointe",
-      "start": 26.69,
-      "end": 27.071
-    },
-    {
-      "word": ":",
-      "start": 27.071,
-      "end": 27.147
-    },
-    {
-      "word": "Ghidra,",
-      "start": 27.147,
-      "end": 27.68
-    },
-    {
-      "word": "Hopper",
-      "start": 27.68,
-      "end": 28.061
-    },
-    {
-      "word": "Disassembler,",
-      "start": 28.061,
-      "end": 29.051
-    },
-    {
-      "word": "IDA",
-      "start": 29.051,
-      "end": 29.241
-    },
-    {
-      "word": "Pro",
-      "start": 29.241,
-      "end": 29.431
-    },
-    {
-      "word": "et",
-      "start": 29.431,
-      "end": 29.558
-    },
-    {
-      "word": "Rizin.",
-      "start": 29.558,
-      "end": 30.015
-    },
-    {
-      "word": "REA",
-      "start": 30.015,
-      "end": 30.206
-    },
-    {
-      "word": "ne",
-      "start": 30.206,
-      "end": 30.333
-    },
-    {
-      "word": "s’arrête",
-      "start": 30.333,
-      "end": 30.84
-    },
-    {
-      "word": "pas",
-      "start": 30.84,
-      "end": 31.031
-    },
-    {
-      "word": "aux",
-      "start": 31.031,
-      "end": 31.221
-    },
-    {
-      "word": "exécutables",
-      "start": 31.221,
-      "end": 31.919
-    },
-    {
-      "word": "C++",
-      "start": 31.919,
-      "end": 32.109
-    },
-    {
-      "word": "ou",
-      "start": 32.109,
-      "end": 32.236
-    },
-    {
-      "word": "Rust.",
-      "start": 32.236,
-      "end": 32.617
-    },
-    {
-      "word": "Il",
-      "start": 32.617,
-      "end": 32.744
-    },
-    {
-      "word": "décompose",
-      "start": 32.744,
-      "end": 33.315
-    },
-    {
-      "word": "les",
-      "start": 33.315,
-      "end": 33.505
-    },
-    {
-      "word": "archives",
-      "start": 33.505,
-      "end": 34.013
-    },
-    {
-      "word": "ASAR",
-      "start": 34.013,
-      "end": 34.267
-    },
-    {
-      "word": "des",
-      "start": 34.267,
-      "end": 34.457
-    },
-    {
-      "word": "applications",
-      "start": 34.457,
-      "end": 35.219
-    },
-    {
-      "word": "Electron,",
-      "start": 35.219,
-      "end": 35.904
-    },
-    {
-      "word": "dépaquette",
-      "start": 35.904,
-      "end": 36.539
-    },
-    {
-      "word": "les",
-      "start": 36.539,
-      "end": 36.729
-    },
-    {
-      "word": "bundles",
-      "start": 36.729,
-      "end": 37.173
-    },
-    {
-      "word": "Vite",
-      "start": 37.173,
-      "end": 37.427
-    },
-    {
-      "word": "et",
-      "start": 37.427,
-      "end": 37.554
-    },
-    {
-      "word": "Webpack,",
-      "start": 37.554,
-      "end": 38.163
-    },
-    {
-      "word": "et",
-      "start": 38.163,
-      "end": 38.29
-    },
-    {
-      "word": "inspecte",
-      "start": 38.29,
-      "end": 38.798
-    },
-    {
-      "word": "les",
-      "start": 38.798,
-      "end": 38.988
-    },
-    {
-      "word": "applications",
-      "start": 38.988,
-      "end": 39.75
-    },
-    {
-      "word": "Android",
-      "start": 39.75,
-      "end": 40.194
-    },
-    {
-      "word": "avec",
-      "start": 40.194,
-      "end": 40.448
-    },
-    {
-      "word": "JADX",
-      "start": 40.448,
-      "end": 40.702
-    },
-    {
-      "word": "et",
-      "start": 40.702,
-      "end": 40.829
-    },
-    {
-      "word": "APKTool.",
-      "start": 40.829,
-      "end": 41.438
-    },
-    {
-      "word": "La",
-      "start": 41.438,
-      "end": 41.565
-    },
-    {
-      "word": "vraie",
-      "start": 41.565,
-      "end": 41.882
-    },
-    {
-      "word": "rupture,",
-      "start": 41.882,
-      "end": 42.491
-    },
-    {
-      "word": "c’est",
-      "start": 42.491,
-      "end": 42.809
-    },
-    {
-      "word": "l’autonomie.",
-      "start": 42.809,
-      "end": 43.722
-    },
-    {
-      "word": "L’agent",
-      "start": 43.722,
-      "end": 44.167
-    },
-    {
-      "word": "IA",
-      "start": 44.167,
-      "end": 44.293
-    },
-    {
-      "word": "ne",
-      "start": 44.293,
-      "end": 44.42
-    },
-    {
-      "word": "devine",
-      "start": 44.42,
-      "end": 44.801
-    },
-    {
-      "word": "pas",
-      "start": 44.801,
-      "end": 44.992
-    },
-    {
-      "word": ":",
-      "start": 44.992,
-      "end": 45.068
-    },
-    {
-      "word": "il",
-      "start": 45.068,
-      "end": 45.195
-    },
-    {
-      "word": "construit",
-      "start": 45.195,
-      "end": 45.766
-    },
-    {
-      "word": "un",
-      "start": 45.766,
-      "end": 45.893
-    },
-    {
-      "word": "ledger",
-      "start": 45.893,
-      "end": 46.273
-    },
-    {
-      "word": "d’obligations,",
-      "start": 46.273,
-      "end": 47.339
-    },
-    {
-      "word": "vérifie",
-      "start": 47.339,
-      "end": 47.784
-    },
-    {
-      "word": "chaque",
-      "start": 47.784,
-      "end": 48.164
-    },
-    {
-      "word": "signature",
-      "start": 48.164,
-      "end": 48.736
-    },
-    {
-      "word": "d’API,",
-      "start": 48.736,
-      "end": 49.192
-    },
-    {
-      "word": "et",
-      "start": 49.192,
-      "end": 49.319
-    },
-    {
-      "word": "instrumente",
-      "start": 49.319,
-      "end": 50.017
-    },
-    {
-      "word": "l’application",
-      "start": 50.017,
-      "end": 50.842
-    },
-    {
-      "word": "en",
-      "start": 50.842,
-      "end": 50.969
-    },
-    {
-      "word": "direct",
-      "start": 50.969,
-      "end": 51.35
-    },
-    {
-      "word": "avec",
-      "start": 51.35,
-      "end": 51.604
-    },
-    {
-      "word": "Frida",
-      "start": 51.604,
-      "end": 51.921
-    },
-    {
-      "word": "pour",
-      "start": 51.921,
-      "end": 52.175
-    },
-    {
-      "word": "valider",
-      "start": 52.175,
-      "end": 52.619
-    },
-    {
-      "word": "la",
-      "start": 52.619,
-      "end": 52.746
-    },
-    {
-      "word": "parité",
-      "start": 52.746,
-      "end": 53.127
-    },
-    {
-      "word": "comportementale",
-      "start": 53.127,
-      "end": 54.079
-    },
-    {
-      "word": "avant",
-      "start": 54.079,
-      "end": 54.396
-    },
-    {
-      "word": "de",
-      "start": 54.396,
-      "end": 54.523
-    },
-    {
-      "word": "régénérer",
-      "start": 54.523,
-      "end": 55.094
-    },
-    {
-      "word": "le",
-      "start": 55.094,
-      "end": 55.221
-    },
-    {
-      "word": "code.",
-      "start": 55.221,
-      "end": 55.602
-    },
-    {
-      "word": "Le",
-      "start": 55.602,
-      "end": 55.729
-    },
-    {
-      "word": "cas",
-      "start": 55.729,
-      "end": 55.919
-    },
-    {
-      "word": "le",
-      "start": 55.919,
-      "end": 56.046
-    },
-    {
-      "word": "plus",
-      "start": 56.046,
-      "end": 56.3
-    },
-    {
-      "word": "marquant",
-      "start": 56.3,
-      "end": 56.808
-    },
-    {
-      "word": "?",
-      "start": 56.808,
-      "end": 56.884
-    },
-    {
-      "word": "Un",
-      "start": 56.884,
-      "end": 57.011
-    },
-    {
-      "word": "développeur",
-      "start": 57.011,
-      "end": 57.709
-    },
-    {
-      "word": "agacé",
-      "start": 57.709,
-      "end": 58.026
-    },
-    {
-      "word": "par",
-      "start": 58.026,
-      "end": 58.216
-    },
-    {
-      "word": "le",
-      "start": 58.216,
-      "end": 58.343
-    },
-    {
-      "word": "modèle",
-      "start": 58.343,
-      "end": 58.724
-    },
-    {
-      "word": "d’abonnement",
-      "start": 58.724,
-      "end": 59.485
-    },
-    {
-      "word": "d’Adobe",
-      "start": 59.485,
-      "end": 59.93
-    },
-    {
-      "word": "qui",
-      "start": 59.93,
-      "end": 60.12
-    },
-    {
-      "word": "a",
-      "start": 60.12,
-      "end": 60.184
-    },
-    {
-      "word": "utilisé",
-      "start": 60.184,
-      "end": 60.628
-    },
-    {
-      "word": "REA",
-      "start": 60.628,
-      "end": 60.818
-    },
-    {
-      "word": "pour",
-      "start": 60.818,
-      "end": 61.072
-    },
-    {
-      "word": "réimplémenter",
-      "start": 61.072,
-      "end": 61.897
-    },
-    {
-      "word": "les",
-      "start": 61.897,
-      "end": 62.087
-    },
-    {
-      "word": "outils",
-      "start": 62.087,
-      "end": 62.468
-    },
-    {
-      "word": "essentiels",
-      "start": 62.468,
-      "end": 63.103
-    },
-    {
-      "word": "en",
-      "start": 63.103,
-      "end": 63.23
-    },
-    {
-      "word": "version",
-      "start": 63.23,
-      "end": 63.674
-    },
-    {
-      "word": "totalement",
-      "start": 63.674,
-      "end": 64.308
-    },
-    {
-      "word": "gratuite",
-      "start": 64.308,
-      "end": 64.816
-    },
-    {
-      "word": "et",
-      "start": 64.816,
-      "end": 64.943
-    },
-    {
-      "word": "open",
-      "start": 64.943,
-      "end": 65.197
-    },
-    {
-      "word": "source.",
-      "start": 65.197,
-      "end": 65.73
-    },
-    {
-      "word": "Mais",
-      "start": 65.73,
-      "end": 65.984
-    },
-    {
-      "word": "cette",
-      "start": 65.984,
-      "end": 66.301
-    },
-    {
-      "word": "technologie",
-      "start": 66.301,
-      "end": 66.999
-    },
-    {
-      "word": "pose",
-      "start": 66.999,
-      "end": 67.253
-    },
-    {
-      "word": "une",
-      "start": 67.253,
-      "end": 67.443
-    },
-    {
-      "word": "question",
-      "start": 67.443,
-      "end": 67.951
-    },
-    {
-      "word": "cruciale",
-      "start": 67.951,
-      "end": 68.459
-    },
-    {
-      "word": ":",
-      "start": 68.459,
-      "end": 68.535
-    },
-    {
-      "word": "qui",
-      "start": 68.535,
-      "end": 68.725
-    },
-    {
-      "word": "va",
-      "start": 68.725,
-      "end": 68.852
-    },
-    {
-      "word": "maintenir",
-      "start": 68.852,
-      "end": 69.423
-    },
-    {
-      "word": "ces",
-      "start": 69.423,
-      "end": 69.614
-    },
-    {
-      "word": "alternatives",
-      "start": 69.614,
-      "end": 70.375
-    },
-    {
-      "word": "dans",
-      "start": 70.375,
-      "end": 70.629
-    },
-    {
-      "word": "la",
-      "start": 70.629,
-      "end": 70.756
-    },
-    {
-      "word": "durée",
-      "start": 70.756,
-      "end": 71.073
-    },
-    {
-      "word": "?",
-      "start": 71.073,
-      "end": 71.149
-    },
-    {
-      "word": "Et",
-      "start": 71.149,
-      "end": 71.276
-    },
-    {
-      "word": "quelle",
-      "start": 71.276,
-      "end": 71.657
-    },
-    {
-      "word": "sera",
-      "start": 71.657,
-      "end": 71.911
-    },
-    {
-      "word": "la",
-      "start": 71.911,
-      "end": 72.038
-    },
-    {
-      "word": "réaction",
-      "start": 72.038,
-      "end": 72.545
-    },
-    {
-      "word": "des",
-      "start": 72.545,
-      "end": 72.736
-    },
-    {
-      "word": "grands",
-      "start": 72.736,
-      "end": 73.116
-    },
-    {
-      "word": "éditeurs",
-      "start": 73.116,
-      "end": 73.624
-    },
-    {
-      "word": "face",
-      "start": 73.624,
-      "end": 73.878
-    },
-    {
-      "word": "à",
-      "start": 73.878,
-      "end": 73.941
-    },
-    {
-      "word": "la",
-      "start": 73.941,
-      "end": 74.068
-    },
-    {
-      "word": "rétro-ingénierie",
-      "start": 74.068,
-      "end": 75.084
-    },
-    {
-      "word": "légale",
-      "start": 75.084,
-      "end": 75.464
-    },
-    {
-      "word": "?",
-      "start": 75.464,
-      "end": 75.541
-    },
-    {
-      "word": "Le",
-      "start": 75.541,
-      "end": 75.667
-    },
-    {
-      "word": "reverse",
-      "start": 75.667,
-      "end": 76.112
-    },
-    {
-      "word": "engineering",
-      "start": 76.112,
-      "end": 76.81
-    },
-    {
-      "word": "n’est",
-      "start": 76.81,
-      "end": 77.127
-    },
-    {
-      "word": "plus",
-      "start": 77.127,
-      "end": 77.381
-    },
-    {
-      "word": "réservé",
-      "start": 77.381,
-      "end": 77.825
-    },
-    {
-      "word": "aux",
-      "start": 77.825,
-      "end": 78.015
-    },
-    {
-      "word": "experts",
-      "start": 78.015,
-      "end": 78.46
-    },
-    {
-      "word": "en",
-      "start": 78.46,
-      "end": 78.587
-    },
-    {
-      "word": "sécurité",
-      "start": 78.587,
-      "end": 79.094
-    },
-    {
-      "word": ":",
-      "start": 79.094,
-      "end": 79.17
-    },
-    {
-      "word": "il",
-      "start": 79.17,
-      "end": 79.297
-    },
-    {
-      "word": "est",
-      "start": 79.297,
-      "end": 79.488
-    },
-    {
-      "word": "désormais",
-      "start": 79.488,
-      "end": 80.059
-    },
-    {
-      "word": "entre",
-      "start": 80.059,
-      "end": 80.376
-    },
-    {
-      "word": "les",
-      "start": 80.376,
-      "end": 80.566
-    },
-    {
-      "word": "mains",
-      "start": 80.566,
-      "end": 80.884
-    },
-    {
-      "word": "de",
-      "start": 80.884,
-      "end": 81.011
-    },
-    {
-      "word": "l’IA.",
-      "start": 81.011,
-      "end": 81.391
-    },
-    {
-      "word": "Révolution",
-      "start": 81.391,
-      "end": 82.026
-    },
-    {
-      "word": "ou",
-      "start": 82.026,
-      "end": 82.153
-    },
-    {
-      "word": "menace",
-      "start": 82.153,
-      "end": 82.534
-    },
-    {
-      "word": "?",
-      "start": 82.534,
-      "end": 82.61
-    },
-    {
-      "word": "Donnez",
-      "start": 82.61,
-      "end": 82.991
-    },
-    {
-      "word": "votre",
-      "start": 82.991,
-      "end": 83.308
-    },
-    {
-      "word": "avis",
-      "start": 83.308,
-      "end": 83.562
-    },
-    {
-      "word": "en",
-      "start": 83.562,
-      "end": 83.689
-    },
-    {
-      "word": "commentaire",
-      "start": 83.689,
-      "end": 84.387
-    },
-    {
-      "word": "et",
-      "start": 84.387,
-      "end": 84.514
-    },
-    {
-      "word": "abonnez-vous",
-      "start": 84.514,
-      "end": 85.275
-    },
-    {
-      "word": "!",
-      "start": 85.275,
-      "end": 85.351
-    }
-  ],
+  "title": "REA : l'IA qui lit les logiciels",
+  "fps": 60,
+  "width": 1080,
+  "height": 1920,
+  "totalFrames": 3819,
+  "durationSeconds": 62.958,
+  "audioSrc": "assets/rea-mix.wav",
   "scenes": [
     {
       "id": "hook",
       "type": "hook",
-      "startFrame": 0,
-      "durationInFrames": 162,
-      "title": "CLONER N’IMPORTE QUEL LOGICIEL",
-      "subtitle": "L’IA a franchi une nouvelle frontière sans code source",
-      "badge": "RÉVÉLATION IA"
+      "badge": "RÉVÉLATION",
+      "title": "COMPRENDRE\nN'IMPORTE QUEL\nLOGICIEL",
+      "sub": "sans le code source",
+      "chips": [
+        "binaire natif",
+        "Electron",
+        "APK"
+      ],
+      "startFrame": 8,
+      "durationInFrames": 411
     },
     {
-      "id": "viral",
-      "type": "browser",
-      "startFrame": 162,
-      "durationInFrames": 389,
-      "url": "github.com/morluto/rea",
-      "imageSrc": "assets/rea_github.png",
-      "title": "REA (Reverse Engineer Anything)",
-      "stars": "383k stars sur GitHub",
-      "badge": "380 000+ STARS SUR GITHUB"
-    },
-    {
-      "id": "native",
-      "type": "native_hopper",
-      "startFrame": 551,
-      "durationInFrames": 326,
-      "imageSrc": "assets/rea-hopper-analysis.png",
-      "title": "Inspection Binaire Native",
-      "badge": "GHIDRA, HOPPER & IDA PRO"
-    },
-    {
-      "id": "multiplatform",
-      "type": "multiplatform",
-      "startFrame": 877,
-      "durationInFrames": 364,
-      "badge": "DÉCONSTRUCTION MULTI-PLATEFORME",
-      "cards": [
+      "id": "stats",
+      "type": "stats",
+      "badge": "GITHUB · 25 OCT. 2026",
+      "title": "REA",
+      "subtitle": "Reverse Engineer Anything",
+      "counters": [
         {
-          "icon": "Globe",
-          "title": "Electron & Web",
-          "desc": "Extraction ASAR, Vite & désobfuscation Webpack"
+          "value": 383984,
+          "label": "étoiles",
+          "accent": "#FACC15"
         },
         {
-          "icon": "Smartphone",
-          "title": "Android & Mobile",
-          "desc": "Décompilation JADX, APKTool & pont ADB"
-        },
-        {
-          "icon": "Activity",
-          "title": "Runtime & Mémoire",
-          "desc": "Instrumentation dynamique et tracing avec Frida"
+          "value": 96080,
+          "label": "forks",
+          "accent": "#38BDF8"
         }
-      ]
+      ],
+      "facts": [
+        "TypeScript",
+        "MIT",
+        "v6.8.0"
+      ],
+      "imageSrc": "assets/rea-repo.png",
+      "startFrame": 419,
+      "durationInFrames": 978
     },
     {
-      "id": "agent_terminal",
-      "type": "terminal",
-      "startFrame": 1241,
-      "durationInFrames": 390,
-      "command": "rea obligation-ledger --verify-coverage ./photoshop.app",
-      "badge": "AUTONOMIE & LEDGER D’OBLIGATIONS"
+      "id": "how",
+      "type": "how",
+      "badge": "LE MÉCANISME",
+      "title": "Un serveur MCP",
+      "sub": "ton agent devient analyste",
+      "tools": [
+        "Hopper",
+        "Ghidra",
+        "IDA",
+        "JADX"
+      ],
+      "targets": [
+        "binaire natif",
+        "Electron",
+        "APK Android",
+        "firmware"
+      ],
+      "startFrame": 1396,
+      "durationInFrames": 989
     },
     {
-      "id": "casestudy",
-      "type": "casestudy",
-      "startFrame": 1631,
-      "durationInFrames": 281,
-      "badge": "CAS RÉEL : LA FIN DES ABONNEMENTS ?",
-      "title": "Remplacement de la Suite Adobe",
-      "desc": "Recréation intégrale des outils de retouche & vectoriels en open source"
-    },
-    {
-      "id": "ethics",
-      "type": "ethics",
-      "startFrame": 1912,
-      "durationInFrames": 283,
-      "badge": "ENJEUX LÉGAUX & PÉRÉNNITÉ",
-      "points": [
+      "id": "proof",
+      "type": "proof",
+      "badge": "ÉTUDE DE CAS · DX-BALL",
+      "counters": [
         {
-          "title": "Droit Européen",
-          "desc": "Rétro-ingénierie légale pour l’interopérabilité logicielle"
+          "value": 3205,
+          "label": "tests d'origine passés",
+          "accent": "#4ADE80"
         },
         {
-          "title": "Maintenance",
-          "desc": "Qui financera et corrigera les bugs de ces clones ?"
-        },
-        {
-          "title": "Impact Marché",
-          "desc": "Bouleversement direct du modèle économique SaaS propriétaire"
+          "value": 63,
+          "label": "octets reproduits",
+          "accent": "#FACC15"
         }
-      ]
+      ],
+      "footnote": "source : morluto/rea, README, section Showcases",
+      "imageSrc": "assets/rea-hopper.png",
+      "startFrame": 2385,
+      "durationInFrames": 550
+    },
+    {
+      "id": "notion",
+      "type": "flow",
+      "badge": "ÉTUDE DE CAS · NOTION",
+      "title": "Le pont presse-papiers",
+      "steps": [
+        "renderer",
+        "preload",
+        "IPC",
+        "main process"
+      ],
+      "startFrame": 2936,
+      "durationInFrames": 383
     },
     {
       "id": "outro",
       "type": "outro",
-      "startFrame": 2195,
-      "durationInFrames": 344,
-      "badge": "LE DÉBAT DU JOUR",
-      "question": "Révolution Open Source ou Menace pour les Développeurs ?",
-      "cta": "Donnez votre avis en commentaire et abonnez-vous !"
+      "badge": "LA QUESTION",
+      "question": "Comprendre ou copier,\noù est la ligne ?",
+      "cta": "Ton avis en commentaire",
+      "startFrame": 3319,
+      "durationInFrames": 501
     }
+  ],
+  "words": [
+    {
+      "word": "Ton",
+      "start": 0.25,
+      "end": 0.471
+    },
+    {
+      "word": "agent",
+      "start": 0.54,
+      "end": 0.761
+    },
+    {
+      "word": "peut",
+      "start": 0.796,
+      "end": 0.923
+    },
+    {
+      "word": "maintenant",
+      "start": 0.958,
+      "end": 1.341
+    },
+    {
+      "word": "ouvrir",
+      "start": 1.399,
+      "end": 1.713
+    },
+    {
+      "word": "un",
+      "start": 1.759,
+      "end": 1.806
+    },
+    {
+      "word": "logiciel",
+      "start": 1.852,
+      "end": 2.351
+    },
+    {
+      "word": "qu'il",
+      "start": 2.409,
+      "end": 2.526
+    },
+    {
+      "word": "n'a",
+      "start": 2.549,
+      "end": 2.63
+    },
+    {
+      "word": "jamais",
+      "start": 2.688,
+      "end": 2.944
+    },
+    {
+      "word": "vu,",
+      "start": 2.967,
+      "end": 3.234
+    },
+    {
+      "word": "et",
+      "start": 3.512,
+      "end": 3.64
+    },
+    {
+      "word": "comprendre",
+      "start": 3.698,
+      "end": 4.221
+    },
+    {
+      "word": "comment",
+      "start": 4.302,
+      "end": 4.569
+    },
+    {
+      "word": "il",
+      "start": 4.615,
+      "end": 4.697
+    },
+    {
+      "word": "fonctionne.",
+      "start": 4.743,
+      "end": 5.277
+    },
+    {
+      "word": "Sans",
+      "start": 5.556,
+      "end": 5.753
+    },
+    {
+      "word": "le",
+      "start": 5.776,
+      "end": 5.834
+    },
+    {
+      "word": "code",
+      "start": 5.881,
+      "end": 6.067
+    },
+    {
+      "word": "source.",
+      "start": 6.101,
+      "end": 6.798
+    },
+    {
+      "word": "Il",
+      "start": 7.098,
+      "end": 7.254
+    },
+    {
+      "word": "s'appelle",
+      "start": 7.254,
+      "end": 7.957
+    },
+    {
+      "word": "REA.",
+      "start": 7.957,
+      "end": 8.269
+    },
+    {
+      "word": "Reverse",
+      "start": 8.269,
+      "end": 8.815
+    },
+    {
+      "word": "Engineer",
+      "start": 8.815,
+      "end": 9.44
+    },
+    {
+      "word": "Anything.",
+      "start": 9.44,
+      "end": 10.142
+    },
+    {
+      "word": "TypeScript,",
+      "start": 10.142,
+      "end": 11.001
+    },
+    {
+      "word": "licence",
+      "start": 11.001,
+      "end": 11.548
+    },
+    {
+      "word": "M.I.T.,",
+      "start": 11.548,
+      "end": 12.094
+    },
+    {
+      "word": "créé",
+      "start": 12.094,
+      "end": 12.406
+    },
+    {
+      "word": "en",
+      "start": 12.406,
+      "end": 12.562
+    },
+    {
+      "word": "avril",
+      "start": 12.562,
+      "end": 12.953
+    },
+    {
+      "word": "deux",
+      "start": 12.953,
+      "end": 13.265
+    },
+    {
+      "word": "mille",
+      "start": 13.265,
+      "end": 13.655
+    },
+    {
+      "word": "vingt-six.",
+      "start": 13.655,
+      "end": 14.436
+    },
+    {
+      "word": "Six",
+      "start": 14.736,
+      "end": 14.991
+    },
+    {
+      "word": "mois",
+      "start": 15.015,
+      "end": 15.142
+    },
+    {
+      "word": "plus",
+      "start": 15.166,
+      "end": 15.316
+    },
+    {
+      "word": "tard",
+      "start": 15.34,
+      "end": 15.7
+    },
+    {
+      "word": ":",
+      "start": 15.746,
+      "end": 15.793
+    },
+    {
+      "word": "trois",
+      "start": 16.118,
+      "end": 16.385
+    },
+    {
+      "word": "cent",
+      "start": 16.431,
+      "end": 16.652
+    },
+    {
+      "word": "quatre-vingt-trois",
+      "start": 16.71,
+      "end": 17.557
+    },
+    {
+      "word": "mille",
+      "start": 17.627,
+      "end": 17.859
+    },
+    {
+      "word": "neuf",
+      "start": 17.906,
+      "end": 18.115
+    },
+    {
+      "word": "cent",
+      "start": 18.184,
+      "end": 18.393
+    },
+    {
+      "word": "quatre-vingt-quatre",
+      "start": 18.44,
+      "end": 19.31
+    },
+    {
+      "word": "étoiles",
+      "start": 19.392,
+      "end": 19.833
+    },
+    {
+      "word": "sur",
+      "start": 19.856,
+      "end": 20.007
+    },
+    {
+      "word": "GitHub,",
+      "start": 20.053,
+      "end": 20.669
+    },
+    {
+      "word": "et",
+      "start": 20.994,
+      "end": 21.121
+    },
+    {
+      "word": "quatre-vingt-seize",
+      "start": 21.168,
+      "end": 21.853
+    },
+    {
+      "word": "mille",
+      "start": 21.888,
+      "end": 22.062
+    },
+    {
+      "word": "forks.",
+      "start": 22.097,
+      "end": 23.095
+    },
+    {
+      "word": "Le",
+      "start": 23.395,
+      "end": 23.562
+    },
+    {
+      "word": "principe,",
+      "start": 23.562,
+      "end": 24.316
+    },
+    {
+      "word": "c'est",
+      "start": 24.316,
+      "end": 24.734
+    },
+    {
+      "word": "un",
+      "start": 24.734,
+      "end": 24.902
+    },
+    {
+      "word": "serveur",
+      "start": 24.902,
+      "end": 25.487
+    },
+    {
+      "word": "MCP.",
+      "start": 25.487,
+      "end": 25.822
+    },
+    {
+      "word": "Ton",
+      "start": 25.822,
+      "end": 26.073
+    },
+    {
+      "word": "agent",
+      "start": 26.073,
+      "end": 26.492
+    },
+    {
+      "word": "branche",
+      "start": 26.492,
+      "end": 27.078
+    },
+    {
+      "word": "les",
+      "start": 27.078,
+      "end": 27.329
+    },
+    {
+      "word": "outils",
+      "start": 27.329,
+      "end": 27.831
+    },
+    {
+      "word": "d'analyse",
+      "start": 27.831,
+      "end": 28.584
+    },
+    {
+      "word": ":",
+      "start": 28.584,
+      "end": 28.668
+    },
+    {
+      "word": "Hopper,",
+      "start": 28.668,
+      "end": 29.254
+    },
+    {
+      "word": "Ghidra,",
+      "start": 29.254,
+      "end": 29.84
+    },
+    {
+      "word": "IDA,",
+      "start": 29.84,
+      "end": 30.175
+    },
+    {
+      "word": "JADX.",
+      "start": 30.175,
+      "end": 30.593
+    },
+    {
+      "word": "Un",
+      "start": 30.893,
+      "end": 31.021
+    },
+    {
+      "word": "binaire",
+      "start": 31.067,
+      "end": 31.357
+    },
+    {
+      "word": "natif,",
+      "start": 31.381,
+      "end": 31.984
+    },
+    {
+      "word": "une",
+      "start": 32.042,
+      "end": 32.182
+    },
+    {
+      "word": "application",
+      "start": 32.205,
+      "end": 32.704
+    },
+    {
+      "word": "Electron,",
+      "start": 32.785,
+      "end": 33.412
+    },
+    {
+      "word": "un",
+      "start": 33.691,
+      "end": 33.784
+    },
+    {
+      "word": "APK",
+      "start": 33.865,
+      "end": 34.155
+    },
+    {
+      "word": "Android,",
+      "start": 34.272,
+      "end": 34.898
+    },
+    {
+      "word": "ou",
+      "start": 35.142,
+      "end": 35.224
+    },
+    {
+      "word": "même",
+      "start": 35.27,
+      "end": 35.433
+    },
+    {
+      "word": "un",
+      "start": 35.456,
+      "end": 35.502
+    },
+    {
+      "word": "firmware.",
+      "start": 35.56,
+      "end": 36.152
+    },
+    {
+      "word": "Il",
+      "start": 36.477,
+      "end": 36.652
+    },
+    {
+      "word": "inspecte,",
+      "start": 36.71,
+      "end": 37.371
+    },
+    {
+      "word": "il",
+      "start": 37.487,
+      "end": 37.638
+    },
+    {
+      "word": "explique,",
+      "start": 37.696,
+      "end": 38.207
+    },
+    {
+      "word": "et",
+      "start": 38.242,
+      "end": 38.347
+    },
+    {
+      "word": "il",
+      "start": 38.37,
+      "end": 38.451
+    },
+    {
+      "word": "cite",
+      "start": 38.521,
+      "end": 38.741
+    },
+    {
+      "word": "ses",
+      "start": 38.765,
+      "end": 38.881
+    },
+    {
+      "word": "preuves.",
+      "start": 38.915,
+      "end": 39.577
+    },
+    {
+      "word": "Sur",
+      "start": 39.877,
+      "end": 40.135
+    },
+    {
+      "word": "un",
+      "start": 40.135,
+      "end": 40.308
+    },
+    {
+      "word": "jeu",
+      "start": 40.308,
+      "end": 40.566
+    },
+    {
+      "word": "des",
+      "start": 40.566,
+      "end": 40.824
+    },
+    {
+      "word": "années",
+      "start": 40.824,
+      "end": 41.341
+    },
+    {
+      "word": "90,",
+      "start": 41.341,
+      "end": 41.599
+    },
+    {
+      "word": "sa",
+      "start": 41.599,
+      "end": 41.772
+    },
+    {
+      "word": "reconstruction",
+      "start": 41.772,
+      "end": 42.977
+    },
+    {
+      "word": "passe",
+      "start": 42.977,
+      "end": 43.408
+    },
+    {
+      "word": "3",
+      "start": 43.408,
+      "end": 43.494
+    },
+    {
+      "word": "205",
+      "start": 43.494,
+      "end": 43.752
+    },
+    {
+      "word": "tests",
+      "start": 43.752,
+      "end": 44.183
+    },
+    {
+      "word": "d'origine,",
+      "start": 44.183,
+      "end": 45.044
+    },
+    {
+      "word": "et",
+      "start": 45.044,
+      "end": 45.216
+    },
+    {
+      "word": "reproduit",
+      "start": 45.216,
+      "end": 45.991
+    },
+    {
+      "word": "les",
+      "start": 45.991,
+      "end": 46.25
+    },
+    {
+      "word": "63",
+      "start": 46.25,
+      "end": 46.422
+    },
+    {
+      "word": "octets",
+      "start": 46.422,
+      "end": 46.939
+    },
+    {
+      "word": "de",
+      "start": 46.939,
+      "end": 47.111
+    },
+    {
+      "word": "la",
+      "start": 47.111,
+      "end": 47.283
+    },
+    {
+      "word": "fonction",
+      "start": 47.283,
+      "end": 47.972
+    },
+    {
+      "word": "compilée.",
+      "start": 47.972,
+      "end": 48.747
+    },
+    {
+      "word": "Sur",
+      "start": 49.047,
+      "end": 49.244
+    },
+    {
+      "word": "Notion,",
+      "start": 49.291,
+      "end": 49.627
+    },
+    {
+      "word": "il",
+      "start": 49.674,
+      "end": 49.72
+    },
+    {
+      "word": "suit",
+      "start": 49.767,
+      "end": 49.953
+    },
+    {
+      "word": "le",
+      "start": 49.976,
+      "end": 50.045
+    },
+    {
+      "word": "presse-papiers",
+      "start": 50.104,
+      "end": 50.777
+    },
+    {
+      "word": "depuis",
+      "start": 50.812,
+      "end": 51.044
+    },
+    {
+      "word": "le",
+      "start": 51.067,
+      "end": 51.114
+    },
+    {
+      "word": "renderer,",
+      "start": 51.183,
+      "end": 51.88
+    },
+    {
+      "word": "à",
+      "start": 52.158,
+      "end": 52.193
+    },
+    {
+      "word": "travers",
+      "start": 52.275,
+      "end": 52.565
+    },
+    {
+      "word": "le",
+      "start": 52.588,
+      "end": 52.646
+    },
+    {
+      "word": "preload,",
+      "start": 52.716,
+      "end": 53.238
+    },
+    {
+      "word": "jusqu'au",
+      "start": 53.319,
+      "end": 53.633
+    },
+    {
+      "word": "processus",
+      "start": 53.691,
+      "end": 54.144
+    },
+    {
+      "word": "principal.",
+      "start": 54.19,
+      "end": 55.131
+    },
+    {
+      "word": "Le",
+      "start": 55.431,
+      "end": 55.617
+    },
+    {
+      "word": "but",
+      "start": 55.675,
+      "end": 55.861
+    },
+    {
+      "word": "n'est",
+      "start": 55.895,
+      "end": 56.023
+    },
+    {
+      "word": "pas",
+      "start": 56.058,
+      "end": 56.197
+    },
+    {
+      "word": "de",
+      "start": 56.232,
+      "end": 56.302
+    },
+    {
+      "word": "pirater",
+      "start": 56.36,
+      "end": 56.94
+    },
+    {
+      "word": ":",
+      "start": 57.056,
+      "end": 57.103
+    },
+    {
+      "word": "c'est",
+      "start": 57.428,
+      "end": 57.614
+    },
+    {
+      "word": "de",
+      "start": 57.637,
+      "end": 57.718
+    },
+    {
+      "word": "comprendre",
+      "start": 57.776,
+      "end": 58.426
+    },
+    {
+      "word": "une",
+      "start": 58.461,
+      "end": 58.589
+    },
+    {
+      "word": "fonctionnalité,",
+      "start": 58.624,
+      "end": 59.355
+    },
+    {
+      "word": "et",
+      "start": 59.39,
+      "end": 59.483
+    },
+    {
+      "word": "de",
+      "start": 59.518,
+      "end": 59.587
+    },
+    {
+      "word": "la",
+      "start": 59.634,
+      "end": 59.692
+    },
+    {
+      "word": "refaire",
+      "start": 59.738,
+      "end": 60.052
+    },
+    {
+      "word": "dans",
+      "start": 60.075,
+      "end": 60.191
+    },
+    {
+      "word": "ton",
+      "start": 60.214,
+      "end": 60.319
+    },
+    {
+      "word": "projet.",
+      "start": 60.365,
+      "end": 60.818
+    },
+    {
+      "word": "Mais",
+      "start": 61.143,
+      "end": 61.329
+    },
+    {
+      "word": "où",
+      "start": 61.352,
+      "end": 61.433
+    },
+    {
+      "word": "s'arrête",
+      "start": 61.503,
+      "end": 61.851
+    },
+    {
+      "word": "l'inspiration",
+      "start": 61.875,
+      "end": 62.513
+    },
+    {
+      "word": "?",
+      "start": 62.594,
+      "end": 62.908
+    }
+  ],
+  "lines": [
+    {
+      "words": [
+        {
+          "word": "Ton",
+          "start": 0.25,
+          "end": 0.471
+        },
+        {
+          "word": "agent",
+          "start": 0.54,
+          "end": 0.761
+        },
+        {
+          "word": "peut",
+          "start": 0.796,
+          "end": 0.923
+        },
+        {
+          "word": "maintenant",
+          "start": 0.958,
+          "end": 1.341
+        }
+      ],
+      "start": 0.25,
+      "end": 1.391
+    },
+    {
+      "words": [
+        {
+          "word": "ouvrir",
+          "start": 1.399,
+          "end": 1.713
+        },
+        {
+          "word": "un",
+          "start": 1.759,
+          "end": 1.806
+        },
+        {
+          "word": "logiciel",
+          "start": 1.852,
+          "end": 2.351
+        },
+        {
+          "word": "qu'il",
+          "start": 2.409,
+          "end": 2.526
+        }
+      ],
+      "start": 1.399,
+      "end": 2.576
+    },
+    {
+      "words": [
+        {
+          "word": "n'a",
+          "start": 2.549,
+          "end": 2.63
+        },
+        {
+          "word": "jamais",
+          "start": 2.688,
+          "end": 2.944
+        },
+        {
+          "word": "vu,",
+          "start": 2.967,
+          "end": 3.234
+        }
+      ],
+      "start": 2.549,
+      "end": 3.284
+    },
+    {
+      "words": [
+        {
+          "word": "et",
+          "start": 3.512,
+          "end": 3.64
+        },
+        {
+          "word": "comprendre",
+          "start": 3.698,
+          "end": 4.221
+        },
+        {
+          "word": "comment",
+          "start": 4.302,
+          "end": 4.569
+        },
+        {
+          "word": "il",
+          "start": 4.615,
+          "end": 4.697
+        }
+      ],
+      "start": 3.512,
+      "end": 4.747
+    },
+    {
+      "words": [
+        {
+          "word": "fonctionne.",
+          "start": 4.743,
+          "end": 5.277
+        },
+        {
+          "word": "Sans",
+          "start": 5.556,
+          "end": 5.753
+        },
+        {
+          "word": "le",
+          "start": 5.776,
+          "end": 5.834
+        },
+        {
+          "word": "code",
+          "start": 5.881,
+          "end": 6.067
+        }
+      ],
+      "start": 4.743,
+      "end": 6.117
+    },
+    {
+      "words": [
+        {
+          "word": "source.",
+          "start": 6.101,
+          "end": 6.798
+        }
+      ],
+      "start": 6.101,
+      "end": 6.848
+    },
+    {
+      "words": [
+        {
+          "word": "Il",
+          "start": 7.098,
+          "end": 7.254
+        },
+        {
+          "word": "s'appelle",
+          "start": 7.254,
+          "end": 7.957
+        },
+        {
+          "word": "REA.",
+          "start": 7.957,
+          "end": 8.269
+        }
+      ],
+      "start": 7.098,
+      "end": 8.319
+    },
+    {
+      "words": [
+        {
+          "word": "Reverse",
+          "start": 8.269,
+          "end": 8.815
+        },
+        {
+          "word": "Engineer",
+          "start": 8.815,
+          "end": 9.44
+        },
+        {
+          "word": "Anything.",
+          "start": 9.44,
+          "end": 10.142
+        }
+      ],
+      "start": 8.269,
+      "end": 10.192
+    },
+    {
+      "words": [
+        {
+          "word": "TypeScript,",
+          "start": 10.142,
+          "end": 11.001
+        },
+        {
+          "word": "licence",
+          "start": 11.001,
+          "end": 11.548
+        },
+        {
+          "word": "M.I.T.,",
+          "start": 11.548,
+          "end": 12.094
+        }
+      ],
+      "start": 10.142,
+      "end": 12.144
+    },
+    {
+      "words": [
+        {
+          "word": "créé",
+          "start": 12.094,
+          "end": 12.406
+        },
+        {
+          "word": "en",
+          "start": 12.406,
+          "end": 12.562
+        },
+        {
+          "word": "avril",
+          "start": 12.562,
+          "end": 12.953
+        },
+        {
+          "word": "deux",
+          "start": 12.953,
+          "end": 13.265
+        }
+      ],
+      "start": 12.094,
+      "end": 13.315
+    },
+    {
+      "words": [
+        {
+          "word": "mille",
+          "start": 13.265,
+          "end": 13.655
+        },
+        {
+          "word": "vingt-six.",
+          "start": 13.655,
+          "end": 14.436
+        }
+      ],
+      "start": 13.265,
+      "end": 14.486
+    },
+    {
+      "words": [
+        {
+          "word": "Six",
+          "start": 14.736,
+          "end": 14.991
+        },
+        {
+          "word": "mois",
+          "start": 15.015,
+          "end": 15.142
+        },
+        {
+          "word": "plus",
+          "start": 15.166,
+          "end": 15.316
+        },
+        {
+          "word": "tard",
+          "start": 15.34,
+          "end": 15.7
+        }
+      ],
+      "start": 14.736,
+      "end": 15.75
+    },
+    {
+      "words": [
+        {
+          "word": ":",
+          "start": 15.746,
+          "end": 15.793
+        },
+        {
+          "word": "trois",
+          "start": 16.118,
+          "end": 16.385
+        },
+        {
+          "word": "cent",
+          "start": 16.431,
+          "end": 16.652
+        },
+        {
+          "word": "quatre-vingt-trois",
+          "start": 16.71,
+          "end": 17.557
+        }
+      ],
+      "start": 15.746,
+      "end": 17.607
+    },
+    {
+      "words": [
+        {
+          "word": "mille",
+          "start": 17.627,
+          "end": 17.859
+        },
+        {
+          "word": "neuf",
+          "start": 17.906,
+          "end": 18.115
+        },
+        {
+          "word": "cent",
+          "start": 18.184,
+          "end": 18.393
+        },
+        {
+          "word": "quatre-vingt-quatre",
+          "start": 18.44,
+          "end": 19.31
+        }
+      ],
+      "start": 17.627,
+      "end": 19.36
+    },
+    {
+      "words": [
+        {
+          "word": "étoiles",
+          "start": 19.392,
+          "end": 19.833
+        },
+        {
+          "word": "sur",
+          "start": 19.856,
+          "end": 20.007
+        },
+        {
+          "word": "GitHub,",
+          "start": 20.053,
+          "end": 20.669
+        }
+      ],
+      "start": 19.392,
+      "end": 20.719
+    },
+    {
+      "words": [
+        {
+          "word": "et",
+          "start": 20.994,
+          "end": 21.121
+        },
+        {
+          "word": "quatre-vingt-seize",
+          "start": 21.168,
+          "end": 21.853
+        },
+        {
+          "word": "mille",
+          "start": 21.888,
+          "end": 22.062
+        },
+        {
+          "word": "forks.",
+          "start": 22.097,
+          "end": 23.095
+        }
+      ],
+      "start": 20.994,
+      "end": 23.145
+    },
+    {
+      "words": [
+        {
+          "word": "Le",
+          "start": 23.395,
+          "end": 23.562
+        },
+        {
+          "word": "principe,",
+          "start": 23.562,
+          "end": 24.316
+        },
+        {
+          "word": "c'est",
+          "start": 24.316,
+          "end": 24.734
+        },
+        {
+          "word": "un",
+          "start": 24.734,
+          "end": 24.902
+        }
+      ],
+      "start": 23.395,
+      "end": 24.952
+    },
+    {
+      "words": [
+        {
+          "word": "serveur",
+          "start": 24.902,
+          "end": 25.487
+        },
+        {
+          "word": "MCP.",
+          "start": 25.487,
+          "end": 25.822
+        },
+        {
+          "word": "Ton",
+          "start": 25.822,
+          "end": 26.073
+        },
+        {
+          "word": "agent",
+          "start": 26.073,
+          "end": 26.492
+        }
+      ],
+      "start": 24.902,
+      "end": 26.542
+    },
+    {
+      "words": [
+        {
+          "word": "branche",
+          "start": 26.492,
+          "end": 27.078
+        },
+        {
+          "word": "les",
+          "start": 27.078,
+          "end": 27.329
+        },
+        {
+          "word": "outils",
+          "start": 27.329,
+          "end": 27.831
+        },
+        {
+          "word": "d'analyse",
+          "start": 27.831,
+          "end": 28.584
+        }
+      ],
+      "start": 26.492,
+      "end": 28.634
+    },
+    {
+      "words": [
+        {
+          "word": ":",
+          "start": 28.584,
+          "end": 28.668
+        },
+        {
+          "word": "Hopper,",
+          "start": 28.668,
+          "end": 29.254
+        },
+        {
+          "word": "Ghidra,",
+          "start": 29.254,
+          "end": 29.84
+        }
+      ],
+      "start": 28.584,
+      "end": 29.89
+    },
+    {
+      "words": [
+        {
+          "word": "IDA,",
+          "start": 29.84,
+          "end": 30.175
+        },
+        {
+          "word": "JADX.",
+          "start": 30.175,
+          "end": 30.593
+        }
+      ],
+      "start": 29.84,
+      "end": 30.643
+    },
+    {
+      "words": [
+        {
+          "word": "Un",
+          "start": 30.893,
+          "end": 31.021
+        },
+        {
+          "word": "binaire",
+          "start": 31.067,
+          "end": 31.357
+        },
+        {
+          "word": "natif,",
+          "start": 31.381,
+          "end": 31.984
+        }
+      ],
+      "start": 30.893,
+      "end": 32.034
+    },
+    {
+      "words": [
+        {
+          "word": "une",
+          "start": 32.042,
+          "end": 32.182
+        },
+        {
+          "word": "application",
+          "start": 32.205,
+          "end": 32.704
+        },
+        {
+          "word": "Electron,",
+          "start": 32.785,
+          "end": 33.412
+        }
+      ],
+      "start": 32.042,
+      "end": 33.462
+    },
+    {
+      "words": [
+        {
+          "word": "un",
+          "start": 33.691,
+          "end": 33.784
+        },
+        {
+          "word": "APK",
+          "start": 33.865,
+          "end": 34.155
+        },
+        {
+          "word": "Android,",
+          "start": 34.272,
+          "end": 34.898
+        }
+      ],
+      "start": 33.691,
+      "end": 34.948
+    },
+    {
+      "words": [
+        {
+          "word": "ou",
+          "start": 35.142,
+          "end": 35.224
+        },
+        {
+          "word": "même",
+          "start": 35.27,
+          "end": 35.433
+        },
+        {
+          "word": "un",
+          "start": 35.456,
+          "end": 35.502
+        },
+        {
+          "word": "firmware.",
+          "start": 35.56,
+          "end": 36.152
+        }
+      ],
+      "start": 35.142,
+      "end": 36.202
+    },
+    {
+      "words": [
+        {
+          "word": "Il",
+          "start": 36.477,
+          "end": 36.652
+        },
+        {
+          "word": "inspecte,",
+          "start": 36.71,
+          "end": 37.371
+        },
+        {
+          "word": "il",
+          "start": 37.487,
+          "end": 37.638
+        },
+        {
+          "word": "explique,",
+          "start": 37.696,
+          "end": 38.207
+        }
+      ],
+      "start": 36.477,
+      "end": 38.257
+    },
+    {
+      "words": [
+        {
+          "word": "et",
+          "start": 38.242,
+          "end": 38.347
+        },
+        {
+          "word": "il",
+          "start": 38.37,
+          "end": 38.451
+        },
+        {
+          "word": "cite",
+          "start": 38.521,
+          "end": 38.741
+        },
+        {
+          "word": "ses",
+          "start": 38.765,
+          "end": 38.881
+        }
+      ],
+      "start": 38.242,
+      "end": 38.931
+    },
+    {
+      "words": [
+        {
+          "word": "preuves.",
+          "start": 38.915,
+          "end": 39.577
+        }
+      ],
+      "start": 38.915,
+      "end": 39.627
+    },
+    {
+      "words": [
+        {
+          "word": "Sur",
+          "start": 39.877,
+          "end": 40.135
+        },
+        {
+          "word": "un",
+          "start": 40.135,
+          "end": 40.308
+        },
+        {
+          "word": "jeu",
+          "start": 40.308,
+          "end": 40.566
+        },
+        {
+          "word": "des",
+          "start": 40.566,
+          "end": 40.824
+        }
+      ],
+      "start": 39.877,
+      "end": 40.874
+    },
+    {
+      "words": [
+        {
+          "word": "années",
+          "start": 40.824,
+          "end": 41.341
+        },
+        {
+          "word": "90,",
+          "start": 41.341,
+          "end": 41.599
+        },
+        {
+          "word": "sa",
+          "start": 41.599,
+          "end": 41.772
+        },
+        {
+          "word": "reconstruction",
+          "start": 41.772,
+          "end": 42.977
+        }
+      ],
+      "start": 40.824,
+      "end": 43.027
+    },
+    {
+      "words": [
+        {
+          "word": "passe",
+          "start": 42.977,
+          "end": 43.408
+        },
+        {
+          "word": "3",
+          "start": 43.408,
+          "end": 43.494
+        },
+        {
+          "word": "205",
+          "start": 43.494,
+          "end": 43.752
+        },
+        {
+          "word": "tests",
+          "start": 43.752,
+          "end": 44.183
+        }
+      ],
+      "start": 42.977,
+      "end": 44.233
+    },
+    {
+      "words": [
+        {
+          "word": "d'origine,",
+          "start": 44.183,
+          "end": 45.044
+        },
+        {
+          "word": "et",
+          "start": 45.044,
+          "end": 45.216
+        },
+        {
+          "word": "reproduit",
+          "start": 45.216,
+          "end": 45.991
+        },
+        {
+          "word": "les",
+          "start": 45.991,
+          "end": 46.25
+        }
+      ],
+      "start": 44.183,
+      "end": 46.3
+    },
+    {
+      "words": [
+        {
+          "word": "63",
+          "start": 46.25,
+          "end": 46.422
+        },
+        {
+          "word": "octets",
+          "start": 46.422,
+          "end": 46.939
+        },
+        {
+          "word": "de",
+          "start": 46.939,
+          "end": 47.111
+        },
+        {
+          "word": "la",
+          "start": 47.111,
+          "end": 47.283
+        }
+      ],
+      "start": 46.25,
+      "end": 47.333
+    },
+    {
+      "words": [
+        {
+          "word": "fonction",
+          "start": 47.283,
+          "end": 47.972
+        },
+        {
+          "word": "compilée.",
+          "start": 47.972,
+          "end": 48.747
+        }
+      ],
+      "start": 47.283,
+      "end": 48.797
+    },
+    {
+      "words": [
+        {
+          "word": "Sur",
+          "start": 49.047,
+          "end": 49.244
+        },
+        {
+          "word": "Notion,",
+          "start": 49.291,
+          "end": 49.627
+        },
+        {
+          "word": "il",
+          "start": 49.674,
+          "end": 49.72
+        },
+        {
+          "word": "suit",
+          "start": 49.767,
+          "end": 49.953
+        }
+      ],
+      "start": 49.047,
+      "end": 50.003
+    },
+    {
+      "words": [
+        {
+          "word": "le",
+          "start": 49.976,
+          "end": 50.045
+        },
+        {
+          "word": "presse-papiers",
+          "start": 50.104,
+          "end": 50.777
+        },
+        {
+          "word": "depuis",
+          "start": 50.812,
+          "end": 51.044
+        },
+        {
+          "word": "le",
+          "start": 51.067,
+          "end": 51.114
+        }
+      ],
+      "start": 49.976,
+      "end": 51.164
+    },
+    {
+      "words": [
+        {
+          "word": "renderer,",
+          "start": 51.183,
+          "end": 51.88
+        },
+        {
+          "word": "à",
+          "start": 52.158,
+          "end": 52.193
+        },
+        {
+          "word": "travers",
+          "start": 52.275,
+          "end": 52.565
+        },
+        {
+          "word": "le",
+          "start": 52.588,
+          "end": 52.646
+        }
+      ],
+      "start": 51.183,
+      "end": 52.696
+    },
+    {
+      "words": [
+        {
+          "word": "preload,",
+          "start": 52.716,
+          "end": 53.238
+        },
+        {
+          "word": "jusqu'au",
+          "start": 53.319,
+          "end": 53.633
+        },
+        {
+          "word": "processus",
+          "start": 53.691,
+          "end": 54.144
+        },
+        {
+          "word": "principal.",
+          "start": 54.19,
+          "end": 55.131
+        }
+      ],
+      "start": 52.716,
+      "end": 55.181
+    },
+    {
+      "words": [
+        {
+          "word": "Le",
+          "start": 55.431,
+          "end": 55.617
+        },
+        {
+          "word": "but",
+          "start": 55.675,
+          "end": 55.861
+        },
+        {
+          "word": "n'est",
+          "start": 55.895,
+          "end": 56.023
+        },
+        {
+          "word": "pas",
+          "start": 56.058,
+          "end": 56.197
+        }
+      ],
+      "start": 55.431,
+      "end": 56.247
+    },
+    {
+      "words": [
+        {
+          "word": "de",
+          "start": 56.232,
+          "end": 56.302
+        },
+        {
+          "word": "pirater",
+          "start": 56.36,
+          "end": 56.94
+        },
+        {
+          "word": ":",
+          "start": 57.056,
+          "end": 57.103
+        }
+      ],
+      "start": 56.232,
+      "end": 57.153
+    },
+    {
+      "words": [
+        {
+          "word": "c'est",
+          "start": 57.428,
+          "end": 57.614
+        },
+        {
+          "word": "de",
+          "start": 57.637,
+          "end": 57.718
+        },
+        {
+          "word": "comprendre",
+          "start": 57.776,
+          "end": 58.426
+        },
+        {
+          "word": "une",
+          "start": 58.461,
+          "end": 58.589
+        }
+      ],
+      "start": 57.428,
+      "end": 58.639
+    },
+    {
+      "words": [
+        {
+          "word": "fonctionnalité,",
+          "start": 58.624,
+          "end": 59.355
+        },
+        {
+          "word": "et",
+          "start": 59.39,
+          "end": 59.483
+        },
+        {
+          "word": "de",
+          "start": 59.518,
+          "end": 59.587
+        },
+        {
+          "word": "la",
+          "start": 59.634,
+          "end": 59.692
+        }
+      ],
+      "start": 58.624,
+      "end": 59.742
+    },
+    {
+      "words": [
+        {
+          "word": "refaire",
+          "start": 59.738,
+          "end": 60.052
+        },
+        {
+          "word": "dans",
+          "start": 60.075,
+          "end": 60.191
+        },
+        {
+          "word": "ton",
+          "start": 60.214,
+          "end": 60.319
+        },
+        {
+          "word": "projet.",
+          "start": 60.365,
+          "end": 60.818
+        }
+      ],
+      "start": 59.738,
+      "end": 60.868
+    },
+    {
+      "words": [
+        {
+          "word": "Mais",
+          "start": 61.143,
+          "end": 61.329
+        },
+        {
+          "word": "où",
+          "start": 61.352,
+          "end": 61.433
+        },
+        {
+          "word": "s'arrête",
+          "start": 61.503,
+          "end": 61.851
+        },
+        {
+          "word": "l'inspiration",
+          "start": 61.875,
+          "end": 62.513
+        }
+      ],
+      "start": 61.143,
+      "end": 62.563
+    },
+    {
+      "words": [
+        {
+          "word": "?",
+          "start": 62.594,
+          "end": 62.908
+        }
+      ],
+      "start": 62.594,
+      "end": 62.958
+    }
+  ],
+  "sceneStartsSeconds": [
+    0.13,
+    6.978,
+    23.275,
+    39.757,
+    48.927,
+    55.311
   ]
 }

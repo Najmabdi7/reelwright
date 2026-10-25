@@ -1,6 +1,6 @@
 import React from "react";
 import { Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
-import { Globe, Smartphone, Activity, Layers, Terminal, CheckCircle2 } from "lucide-react";
+import { Layers, CheckCircle2 } from "lucide-react";
 
 interface CardItem {
   icon: string;

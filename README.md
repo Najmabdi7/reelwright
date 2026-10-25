@@ -1,120 +1,147 @@
-# 🎬 Agent Video Studio — Autonomous Video Generation Pipeline
+# 🎬 Agent Video Studio — pipeline vidéo pilotée par le contenu
 
-> Pipeline d'automatisation complète de génération de vidéos tech documentaires (Video Essays) en 1080p Full HD, pilotée par le code (Remotion, Playwright, Edge-TTS).
+> Génère une vidéo tech (short vertical 1080×1920 @60 ou format long 1920×1080 @30)
+> à partir d'un simple fichier JSON : captures web réelles, voix française avec
+> timings mot-à-mot mesurés, motion design Remotion, mixage normé et vérification
+> automatique du fichier final.
 
----
-
-## 🌟 Présentation
-
-Ce dépôt contient la pipeline logicielle autonome permettant à un agent IA de produire une vidéo de vulgarisation ou de démonstration technique complète de bout en bout, sans aucun montage manuel :
-
-1. **Capture web automatisée (Playwright) :** Navigation autonome sur les dépôts GitHub et sites officiels, extraction de métriques réelles (stars, forks, commits) et captures Retina 2x.
-2. **Double flux vocal & textuel (Phonétisation) :** Synthèse vocale neuronale HD française (`edge-tts`) avec phonétisation des termes techniques (`GitHub` prononcé correctement via phonétique `Guite Heube`) tout en conservant une typographie irréprochable dans les sous-titres.
-3. **Synchronisation milliseconde (Karaoké) :** Alignement temporel des mots pour un surlignage dynamique en temps réel.
-4. **Motion Design programmatique (Remotion 4 + TailwindCSS 4) :** Rendu vectoriel haute fidélité avec physique d'amortissement (`Spring physics`), fenêtres macOS réalistes, terminaux CLI interactifs, et comparateurs d'outils multi-onglets.
-5. **Sound Design adaptatif :** Bruitages procéduraux synchronisés (*whoosh*, *pop*, *click*) et mixage audio avec *ducking* automatique de la musique ambiante sous la voix.
-
----
-
-## 🏗️ Architecture de la Pipeline
-
-```mermaid
-flowchart TD
-    A["1. Script & Recherche\n(generate_video_agent.py)"] --> B["2. Capture Web Réelle\n(Playwright Chromium)"]
-    B --> C["3. Synthèse Vocale & Timings\n(Microsoft Edge Neural TTS)"]
-    C --> D["4. Composition Remotion\n(React + Tailwind + Lucide)"]
-    D --> E["5. Rendu Headless Concurrence 4x\n(Remotion Renderer)"]
-    E --> F["🎬 Fichier Final MP4 1080p\n(output/rea_presentation_v3.mp4)"]
+```bash
+git clone https://github.com/Najmabdi7/agent-video-pipeline.git
+cd agent-video-pipeline
+./setup.sh
+source .venv/bin/activate
+python3 generate_video_agent.py --content content/rea_short.json --format short
 ```
 
+Sortie : `output/<slug>-short.mp4`, puis un rapport de vérification (durée,
+résolution, LUFS, crête, transcription et dérive de synchro).
+
 ---
 
-## 📁 Structure du Projet
+## Ce que fait la pipeline
+
+```
+content/<sujet>.json
+        │
+        ├─ 1. captures      Playwright (pages) + téléchargement d'assets, cache par nom
+        ├─ 2. voix          ElevenLabs with-timestamps (ou edge-tts WordBoundary)
+        │                   → un fichier + des timings RÉELS par segment
+        ├─ 3. sous-titres    lignes de 2-4 mots, jamais à cheval sur une ponctuation
+        ├─ 4. mixage         ffmpeg : ducking sidechain, SFX sur les coupes, -14 LUFS
+        ├─ 5. données        video_data.json (scènes dérivées des segments)
+        ├─ 6. rendu          Remotion → MP4 H.264/AAC
+        └─ 7. vérification   ffprobe + loudnorm + Whisper (transcription et dérive)
+```
+
+Points importants :
+
+- **Aucun contenu dans le code.** Script, scènes, textes, captations : tout vient
+  de `content/*.json`. Un nouveau sujet = un nouveau JSON.
+- **Les sous-titres ne sont pas estimés.** Les timings viennent des timestamps
+  renvoyés par la synthèse vocale. La dérive mesurée par Whisper est reportée
+  dans le rapport ; au-delà de 0,15 s la pipeline sort en erreur.
+- **Les bornes de scènes suivent la voix.** Une scène démarre au premier mot de
+  son segment ; aucun index de phrase codé en dur.
+- **Les SFX suivent les coupes.** Whoosh et pop sont placés sur les `startFrame`
+  réels des scènes, plus sur une liste de frames figée.
+- **Le mixage est fait une fois, en ffmpeg**, et non par des volumes statiques
+  dans React : la musique est compressée en sidechain par la voix, le master
+  sort à −14 LUFS / −1,5 dBTP.
+
+---
+
+## Formats
+
+| `--format` | Taille | Cadence | Composition | Usage |
+|---|---|---|---|---|
+| `short` (défaut) | 1080×1920 | 60 fps | `Short` | YouTube Shorts, TikTok, Reels |
+| `long` | 1920×1080 | 30 fps | `VideoEssay` | vidéo longue 16:9 |
+
+---
+
+## Écrire un contenu
+
+`content/<sujet>.json` :
+
+```jsonc
+{
+  "slug": "rea",
+  "title": "REA : l'IA qui lit les logiciels",
+  "captures": [
+    { "name": "repo", "url": "https://github.com/morluto/rea", "wait_ms": 3500 },
+    { "name": "logo", "kind": "asset", "url": "https://…/logo.png" }
+  ],
+  "segments": [
+    { "id": "hook",
+      "speech":  "Texte prononcé.",
+      "display": "Texte affiché." }
+  ],
+  "scenes": [
+    { "id": "s1", "type": "hook", "segments": [0], "badge": "…", "title": "…" }
+  ]
+}
+```
+
+- `segments[]` : une phrase par entrée. `speech` peut différer de `display`
+  (prononciation d'un sigle) ; dans ce cas les timings du segment retombent sur
+  une répartition proportionnelle — à éviter quand c'est possible.
+- `scenes[].segments` : les index de segments couverts par la scène. C'est ce
+  qui fixe sa durée.
+- Types de scènes disponibles en `short` : `hook`, `stats`, `how`, `proof`,
+  `flow`, `outro`.
+- Types disponibles en `long` : `hook`, `browser`, `native_hopper`,
+  `multiplatform`, `terminal`, `casestudy`, `ethics`, `outro`.
+
+---
+
+## Options
+
+```
+--content PATH         fichier de contenu (défaut : content/rea_short.json)
+--format short|long    format de sortie (défaut : short)
+--output PATH          fichier de sortie
+--tts elevenlabs|edge  voix (défaut : elevenlabs, repli automatique sur edge-tts
+                       si ELEVENLABS_API_KEY est absent)
+--concurrency N        workers Remotion (défaut : 3)
+```
+
+`ELEVENLABS_API_KEY` est lu depuis l'environnement, sinon depuis `.env` à la
+racine du dépôt, sinon depuis `~/.hermes/.env`.
+
+---
+
+## Prérequis
+
+- Node.js 22+ et npm
+- Python 3.10+
+- `ffmpeg` et `ffprobe` dans le `PATH`
+- Chromium Playwright (`setup.sh` s'en occupe)
+
+`setup.sh` crée `.venv`, installe les dépendances Python, le Chromium de
+Playwright et les paquets npm du studio.
+
+---
+
+## Structure
 
 ```
 agent-video-pipeline/
-├── README.md
-├── requirements.txt              # Dépendances Python (playwright, edge-tts)
-├── setup.sh                      # Script d'installation automatique en 1 clic
-├── generate_video_agent.py       # Orchestrateur central de la pipeline
-└── agent-video-studio/           # Studio Remotion (React / TypeScript)
-    ├── remotion.config.ts        # Configuration d'encodage (1080p, 30fps)
-    ├── package.json
-    ├── public/
-    │   ├── assets/               # Captures réelles & fichier audio généré
-    │   └── sfx/                  # Effets sonores procéduraux & musique ambiante
-    └── src/
-        ├── VideoEssay.tsx        # Composition maîtresse et mixage audio
-        ├── video_data.json       # Fichier d'orchestration synchronisé
-        ├── components/
-        │   ├── Background.tsx    # Fond cybernétique avec halos réactifs
-        │   ├── MacWindow.tsx     # Mockup de fenêtre macOS
-        │   └── Subtitles.tsx     # Moteur de sous-titres karaoké
-        └── scenes/
-            ├── HookScene.tsx             # Accroche percutante
-            ├── BrowserScene.tsx          # Dépôt GitHub & métriques virales
-            ├── NativeHopperScene.tsx     # Désassemblage Hopper & Ghidra
-            ├── MultiplatformScene.tsx    # Runtimes Electron, Android, Frida
-            ├── TerminalScene.tsx         # Console interactif & protocole MCP
-            ├── CaseStudyScene.tsx        # Étude de cas Adobe vs Alternatives Libres
-            ├── EthicsScene.tsx           # Droit européen & pérennité
-            └── OutroScene.tsx            # Conclusion & appel à l'action
+├── generate_video_agent.py      # orchestrateur (7 étapes)
+├── content/                     # les sujets, en JSON
+├── agent-video-studio/
+│   ├── public/assets/           # captures + mix audio générés
+│   ├── public/sfx/              # whoosh, pop, click, musique
+│   └── src/
+│       ├── Root.tsx             # compositions `Short` et `VideoEssay`
+│       ├── short/ShortEssay.tsx # scènes verticales 9:16
+│       ├── scenes/              # scènes 16:9 (format long)
+│       ├── components/          # Background, MacWindow, SubtitleTrack
+│       └── video_data.json      # généré — ne pas éditer à la main
+└── legacy/                      # v1 conservée pour référence
 ```
 
 ---
 
-## ⚡ Installation Rapide
+## Licence
 
-### Prérequis
-- **Node.js** 18+ & npm
-- **Python** 3.10+
-- **ffmpeg** (recommandé pour les codecs vidéo natifs)
-
-### 1. Installation automatique
-Exécutez le script d'initialisation :
-```bash
-chmod +x setup.sh
-./setup.sh
-```
-
-Ce script configure :
-- L'environnement virtuel Python (`.venv`)
-- Les packages Python nécessaires (`playwright`, `edge-tts`)
-- Le navigateur Chromium headless pour les captures web
-- Les dépendances npm de Remotion
-
----
-
-## 🚀 Utilisation
-
-### Générer une vidéo complète
-Activez l'environnement virtuel et lancez le script maître :
-
-```bash
-source .venv/bin/activate
-python3 generate_video_agent.py --url "https://github.com/morluto/rea" --output "output/ma_video.mp4"
-```
-
-### Visualiser le studio en direct (Mode Preview Remotion)
-Pour ajuster les scènes, tester les animations et inspecter les frames dans le navigateur :
-
-```bash
-cd agent-video-studio
-npm start
-```
-Le serveur local Remotion s'ouvrira sur `http://localhost:3000`.
-
----
-
-## 🎬 Résultat Produit
-
-- **Format :** MP4 (H.264 / AAC)
-- **Résolution :** 1920 × 1080 (Full HD 16:9)
-- **Cadence :** 30 images par seconde
-- **Audio :** Voix neuronale française haute définition + musique cybernétique duckée + SFX synchronisés.
-
----
-
-## 📄 Licence
-
-MIT © [Najmabdi7](https://github.com/Najmabdi7)
+MIT — voir [LICENSE](LICENSE). © [Najmabdi7](https://github.com/Najmabdi7)

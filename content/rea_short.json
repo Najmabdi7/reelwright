@@ -1,0 +1,97 @@
+{
+  "slug": "rea",
+  "title": "REA : l'IA qui lit les logiciels",
+  "url": "https://github.com/morluto/rea",
+  "captures": [
+    { "name": "repo", "url": "https://github.com/morluto/rea", "wait_ms": 3500 },
+    { "name": "site", "url": "https://rea.tools/", "wait_ms": 3000 },
+    { "name": "hopper", "url": "https://raw.githubusercontent.com/morluto/rea/main/docs/assets/rea-hopper-analysis.png", "kind": "asset" }
+  ],
+  "segments": [
+    {
+      "id": "hook",
+      "speech": "Ton agent peut maintenant ouvrir un logiciel qu'il n'a jamais vu, et comprendre comment il fonctionne. Sans le code source.",
+      "display": "Ton agent peut maintenant ouvrir un logiciel qu'il n'a jamais vu, et comprendre comment il fonctionne. Sans le code source."
+    },
+    {
+      "id": "name",
+      "speech": "Il s'appelle Réa. Reverse Engineer Anything. TypeScript, licence M.I.T., créé en avril deux mille vingt-six.",
+      "display": "Il s'appelle REA. Reverse Engineer Anything. TypeScript, licence M.I.T., créé en avril deux mille vingt-six."
+    },
+    {
+      "id": "stars",
+      "speech": "Six mois plus tard : trois cent quatre-vingt-trois mille neuf cent quatre-vingt-quatre étoiles sur GitHub, et quatre-vingt-seize mille forks.",
+      "display": "Six mois plus tard : trois cent quatre-vingt-trois mille neuf cent quatre-vingt-quatre étoiles sur GitHub, et quatre-vingt-seize mille forks."
+    },
+    {
+      "id": "mcp",
+      "speech": "Le principe, c'est un serveur M.C.P. Ton agent branche les outils d'analyse : Hopper, Ghidra, Ida, Jadx.",
+      "display": "Le principe, c'est un serveur MCP. Ton agent branche les outils d'analyse : Hopper, Ghidra, IDA, JADX."
+    },
+    {
+      "id": "targets",
+      "speech": "Un binaire natif, une application Electron, un APK Android, ou même un firmware. Il inspecte, il explique, et il cite ses preuves.",
+      "display": "Un binaire natif, une application Electron, un APK Android, ou même un firmware. Il inspecte, il explique, et il cite ses preuves."
+    },
+    {
+      "id": "proof",
+      "speech": "Sur un jeu des années quatre-vingt-dix, sa reconstruction passe trois mille deux cent cinq tests d'origine, et reproduit les soixante-trois octets de la fonction compilée.",
+      "display": "Sur un jeu des années 90, sa reconstruction passe 3 205 tests d'origine, et reproduit les 63 octets de la fonction compilée."
+    },
+    {
+      "id": "notion",
+      "speech": "Sur Notion, il suit le presse-papiers depuis le renderer, à travers le preload, jusqu'au processus principal.",
+      "display": "Sur Notion, il suit le presse-papiers depuis le renderer, à travers le preload, jusqu'au processus principal."
+    },
+    {
+      "id": "outro",
+      "speech": "Le but n'est pas de pirater : c'est de comprendre une fonctionnalité, et de la refaire dans ton projet. Mais où s'arrête l'inspiration ?",
+      "display": "Le but n'est pas de pirater : c'est de comprendre une fonctionnalité, et de la refaire dans ton projet. Mais où s'arrête l'inspiration ?"
+    }
+  ],
+  "scenes": [
+    { "id": "hook", "type": "hook", "segments": [0],
+      "badge": "RÉVÉLATION",
+      "title": "COMPRENDRE\nN'IMPORTE QUEL\nLOGICIEL",
+      "sub": "sans le code source",
+      "chips": ["binaire natif", "Electron", "APK"] },
+
+    { "id": "stats", "type": "stats", "segments": [1, 2],
+      "badge": "GITHUB · 25 OCT. 2026",
+      "title": "REA",
+      "subtitle": "Reverse Engineer Anything",
+      "counters": [
+        { "value": 383984, "label": "étoiles", "accent": "#FACC15" },
+        { "value": 96080, "label": "forks", "accent": "#38BDF8" }
+      ],
+      "facts": ["TypeScript", "MIT", "v6.8.0"],
+      "image": "repo" },
+
+    { "id": "how", "type": "how", "segments": [3, 4],
+      "badge": "LE MÉCANISME",
+      "title": "Un serveur MCP",
+      "sub": "ton agent devient analyste",
+      "tools": ["Hopper", "Ghidra", "IDA", "JADX"],
+      "targets": ["binaire natif", "Electron", "APK Android", "firmware"] },
+
+    { "id": "proof", "type": "proof", "segments": [5],
+      "badge": "ÉTUDE DE CAS · DX-BALL",
+      "counters": [
+        { "value": 3205, "label": "tests d'origine passés", "accent": "#4ADE80" },
+        { "value": 63, "label": "octets reproduits", "accent": "#FACC15" }
+      ],
+      "image": "hopper",
+      "footnote": "source : morluto/rea, README, section Showcases" },
+
+    { "id": "notion", "type": "flow", "segments": [6],
+      "badge": "ÉTUDE DE CAS · NOTION",
+      "title": "Le pont presse-papiers",
+      "steps": ["renderer", "preload", "IPC", "main process"] },
+
+    { "id": "outro", "type": "outro", "segments": [7],
+      "badge": "LA QUESTION",
+      "question": "Comprendre ou copier,\noù est la ligne ?",
+      "cta": "Ton avis en commentaire"
+    }
+  ]
+}

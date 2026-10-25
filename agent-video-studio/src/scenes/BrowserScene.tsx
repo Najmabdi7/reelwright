@@ -1,7 +1,7 @@
 import React from "react";
 import { Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { MacWindow } from "../components/MacWindow";
-import { Star, Flame, GitFork, Eye, Globe } from "lucide-react";
+import { Star, Flame, GitFork, Globe } from "lucide-react";
 
 interface BrowserSceneProps {
   url: string;
