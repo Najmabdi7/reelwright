@@ -657,11 +657,11 @@ const OutroScene: React.FC<SceneData> = ({ badge, question, cta }) => {
         style={{
           fontFamily: "JetBrains Mono, monospace",
           fontSize: 26,
-          color: "#475569",
+          color: "#7C8AA0",
           marginTop: 10,
         }}
       >
-        @RadarIA
+        @RadarIA-t2m
       </span>
     </Frame>
   );
@@ -698,7 +698,7 @@ export const ShortEssay: React.FC<{ data: VideoData }> = ({ data }) => {
         );
       })}
 
-      <SubtitleTrack lines={data.lines} fontSize={46} bottom={140} maxWidth={920} />
+      <SubtitleTrack lines={data.lines} fontSize={46} bottom={268} maxWidth={900} />
     </div>
   );
 };
